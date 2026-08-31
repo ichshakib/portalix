@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     :root {
       --bg: #090a0c;
@@ -53,6 +54,34 @@
       text-decoration: none;
     }
 
+    /* Lucide Icon Helpers */
+    .lucide-icon-xs {
+      width: 13px;
+      height: 13px;
+      stroke-width: 2.2;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    .lucide-icon-sm {
+      width: 15px;
+      height: 15px;
+      stroke-width: 2;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    .lucide-icon-md {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
     /* Header & Navigation */
     header.main-header {
       border-bottom: 1px solid var(--border);
@@ -89,8 +118,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 700;
-      font-size: 0.95rem;
       color: #f1f5f9;
     }
 
@@ -116,6 +143,8 @@
       flex: 1;
       max-width: 480px;
       position: relative;
+      display: flex;
+      align-items: center;
     }
 
     .search-icon {
@@ -125,6 +154,9 @@
       transform: translateY(-50%);
       color: var(--text-dim);
       pointer-events: none;
+      width: 16px;
+      height: 16px;
+      stroke-width: 2;
     }
 
     .search-input {
@@ -210,7 +242,7 @@
       white-space: nowrap;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
       transition: all 0.15s;
     }
 
@@ -388,7 +420,7 @@
       background: transparent;
       border: none;
       color: var(--text-dim);
-      padding: 4px;
+      padding: 5px;
       border-radius: 4px;
       cursor: pointer;
       display: flex;
@@ -428,6 +460,9 @@
       padding: 2px 7px;
       border-radius: 4px;
       text-transform: capitalize;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
     }
 
     .tag-trusted {
@@ -547,7 +582,7 @@
       transition: color 0.15s;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
     }
 
     .footer-col ul li a:hover {
@@ -560,6 +595,7 @@
       color: var(--text-dim);
       padding: 1px 5px;
       border-radius: 4px;
+      margin-left: auto;
     }
 
     .legal-notice {
@@ -597,6 +633,9 @@
       border-radius: var(--radius-sm);
       font-size: 0.78rem;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       transition: all 0.15s;
     }
 
@@ -646,17 +685,20 @@
   <!-- Filter Pills -->
   <div class="filter-bar" id="category-filter-bar">
     <button class="filter-chip active" data-category="all" id="filter-all">
+      <i data-lucide="layout-grid" class="lucide-icon-xs"></i>
       <span>All</span>
       <span class="filter-count"><%= totalCount %></span>
     </button>
     <% categories.forEach(function(cat) { %>
       <button class="filter-chip" data-category="<%= cat.name %>">
-        <span><%= cat.icon %> <%= cat.name %></span>
+        <i data-lucide="<%= cat.icon %>" class="lucide-icon-xs"></i>
+        <span><%= cat.name %></span>
         <span class="filter-count"><%= cat.count %></span>
       </button>
     <% }); %>
     <button class="filter-chip" data-category="starred" id="filter-starred">
-      <span>★ Bookmarks</span>
+      <i data-lucide="bookmark" class="lucide-icon-xs"></i>
+      <span>Bookmarks</span>
       <span class="filter-count" id="starred-count">0</span>
     </button>
   </div>
@@ -685,7 +727,10 @@
         <section class="category-section" id="section-<%= cat.id %>" data-category-section="<%= cat.name %>">
           <div class="category-header">
             <div>
-              <h2 class="category-title"><%= cat.icon %> <%= cat.name %></h2>
+              <h2 class="category-title">
+                <i data-lucide="<%= cat.icon %>" class="lucide-icon-md"></i>
+                <span><%= cat.name %></span>
+              </h2>
               <div class="category-desc"><%= cat.desc %></div>
             </div>
             <span class="footer-badge-count" style="font-size: 0.8rem; padding: 2px 8px;"><%= catSites.length %> sites</span>
@@ -717,6 +762,15 @@
     const allCards = document.querySelectorAll('.site-card');
     const categorySections = document.querySelectorAll('.category-section');
 
+    // Initialize Lucide Icons
+    function refreshIcons() {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    }
+    document.addEventListener('DOMContentLoaded', refreshIcons);
+    refreshIcons();
+
     // Storage for starred items
     let starred = new Set(JSON.parse(localStorage.getItem('portalix_bookmarks') || '[]'));
     let activeCategory = 'all';
@@ -729,15 +783,15 @@
       allCards.forEach(card => {
         const id = card.getAttribute('data-id');
         const starBtn = card.querySelector('.star-btn');
-        const starSvg = starBtn.querySelector('svg');
         if (starred.has(id)) {
           starBtn.classList.add('starred');
-          starSvg.setAttribute('fill', 'currentColor');
+          starBtn.setAttribute('title', 'Remove bookmark');
         } else {
           starBtn.classList.remove('starred');
-          starSvg.setAttribute('fill', 'none');
+          starBtn.setAttribute('title', 'Bookmark');
         }
       });
+      refreshIcons();
     }
     updateStarredUI();
 
@@ -754,7 +808,7 @@
         showToast('Removed from bookmarks');
       } else {
         starred.add(id);
-        showToast('★ Added to bookmarks');
+        showToast('Added to bookmarks');
       }
       updateStarredUI();
       if (activeCategory === 'starred') filterDirectory();
@@ -763,7 +817,7 @@
     function copyLink(url, event) {
       event.stopPropagation();
       navigator.clipboard.writeText(url).then(() => {
-        showToast('✓ Link copied to clipboard!');
+        showToast('Link copied to clipboard!');
       });
     }
 
@@ -824,6 +878,7 @@
 
       resultsCountText.textContent = `Showing ${visibleCount} verified ${visibleCount === 1 ? 'site' : 'sites'}`;
       emptyState.style.display = (visibleCount === 0) ? 'block' : 'none';
+      refreshIcons();
     }
 
     searchInput.addEventListener('input', (e) => {

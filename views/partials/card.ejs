@@ -1,5 +1,4 @@
 <% 
-  const isStarred = false; 
   const faviconSrc = `https://www.google.com/s2/favicons?domain=${site.domain}&sz=64`;
   const initials = site.name.slice(0, 2).toUpperCase();
 %>
@@ -18,16 +17,11 @@
       </div>
     </div>
     <div class="card-actions">
-      <button class="copy-link-btn" onclick="copyLink('<%= site.url %>', event)" title="Copy link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-        </svg>
+      <button class="copy-link-btn" onclick="copyLink('<%= site.url %>', event)" title="Copy link" aria-label="Copy link for <%= site.name %>">
+        <i data-lucide="copy" class="lucide-icon-sm"></i>
       </button>
-      <button class="star-btn" data-star-id="<%= site.id %>" onclick="toggleStar('<%= site.id %>', event)" title="Bookmark">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-        </svg>
+      <button class="star-btn" data-star-id="<%= site.id %>" onclick="toggleStar('<%= site.id %>', event)" title="Bookmark" aria-label="Bookmark <%= site.name %>">
+        <i data-lucide="star" class="lucide-icon-sm"></i>
       </button>
     </div>
   </div>
@@ -35,20 +29,22 @@
   <div class="card-bottom">
     <div class="tags-group">
       <% if (site.isTrusted) { %>
-        <span class="tag-chip tag-trusted">✓ Trusted</span>
+        <span class="tag-chip tag-trusted">
+          <i data-lucide="shield-check" class="lucide-icon-xs"></i>
+          <span>Trusted</span>
+        </span>
       <% } %>
       <% if (site.isFeatured) { %>
-        <span class="tag-chip tag-featured">★ Featured</span>
+        <span class="tag-chip tag-featured">
+          <i data-lucide="sparkles" class="lucide-icon-xs"></i>
+          <span>Featured</span>
+        </span>
       <% } %>
       <span class="tag-chip tag-default"><%= site.category %></span>
     </div>
     <div class="card-ext-link">
       <span>Open</span>
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-        <polyline points="15 3 21 3 21 9"></polyline>
-        <line x1="10" y1="14" x2="21" y2="3"></line>
-      </svg>
+      <i data-lucide="arrow-up-right" class="lucide-icon-xs"></i>
     </div>
   </div>
 </div>

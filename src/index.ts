@@ -41,15 +41,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(PUBLIC_DIR));
 
-// Prepare Category Metadata
+// Prepare Category Metadata with Lucide Icon identifiers
 const getCategoryList = (sites: SiteItem[]): CategoryInfo[] => {
   const baseCategories: Array<Omit<CategoryInfo, 'count'>> = [
-    { id: 'movies-shows', name: 'Movies & Shows', icon: '🎬', desc: 'Free movie streaming sites, web series & HD cinema hubs' },
-    { id: 'anime', name: 'Anime', icon: '🎌', desc: 'Subbed & dubbed anime streaming platforms and aggregators' },
-    { id: 'manga', name: 'Manga', icon: '📖', desc: 'Online manga readers, scanlations, manhwa & webtoons' },
-    { id: 'live-tv-sports', name: 'Live TV & Sports', icon: '⚽', desc: 'Live sports streams, PPV events, soccer, basketball & IPTV' },
-    { id: 'paid', name: 'Paid', icon: '💳', desc: 'Official premium OTT platforms, subscription streaming & video on demand' },
-    { id: 'apps', name: 'Apps', icon: '📱', desc: 'Mobile streaming APKs, media managers & streaming client applications' },
+    { id: 'movies-shows', name: 'Movies & Shows', icon: 'film', desc: 'Free movie streaming sites, web series & HD cinema hubs' },
+    { id: 'anime', name: 'Anime', icon: 'tv', desc: 'Subbed & dubbed anime streaming platforms and aggregators' },
+    { id: 'manga', name: 'Manga', icon: 'book-open', desc: 'Online manga readers, scanlations, manhwa & webtoons' },
+    { id: 'live-tv-sports', name: 'Live TV & Sports', icon: 'trophy', desc: 'Live sports streams, PPV events, soccer, basketball & IPTV' },
+    { id: 'paid', name: 'Paid', icon: 'credit-card', desc: 'Official premium OTT platforms, subscription streaming & video on demand' },
+    { id: 'apps', name: 'Apps', icon: 'layout-grid', desc: 'Mobile streaming APKs, media managers & streaming client applications' },
   ];
 
   return baseCategories.map((cat) => ({

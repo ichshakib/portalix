@@ -4,7 +4,9 @@
       <!-- Brand & Mission -->
       <div class="footer-brand">
         <div class="footer-brand-title">
-          <span class="logo-badge" style="width:24px;height:24px;font-size:0.75rem;">P</span>
+          <span class="logo-badge" style="width:24px;height:24px;font-size:0.75rem;">
+            <i data-lucide="layers" style="width:14px;height:14px;"></i>
+          </span>
           <span>Portalix Directory</span>
         </div>
         <p class="footer-brand-desc">
@@ -19,7 +21,9 @@
           <% categories.forEach(function(cat) { %>
             <li>
               <a href="#section-<%= cat.id %>" onclick="filterByCategory('<%= cat.name %>'); return false;">
-                <%= cat.name %> <span class="footer-badge-count"><%= cat.count %></span>
+                <i data-lucide="<%= cat.icon %>" class="lucide-icon-xs"></i>
+                <span><%= cat.name %></span>
+                <span class="footer-badge-count"><%= cat.count %></span>
               </a>
             </li>
           <% }); %>
@@ -30,11 +34,36 @@
       <div class="footer-col">
         <h4>Developers &amp; API</h4>
         <ul>
-          <li><a href="/api/sites" target="_blank">GET /api/sites</a></li>
-          <li><a href="/health" target="_blank">GET /health</a></li>
-          <li><a href="/api/info" target="_blank">GET /api/info</a></li>
-          <li><a href="https://github.com/ichshakib/portalix" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
-          <li><a href="#search-input" onclick="document.getElementById('search-input').focus(); return false;">Instant Search (/)</a></li>
+          <li>
+            <a href="/api/sites" target="_blank">
+              <i data-lucide="code-2" class="lucide-icon-xs"></i>
+              <span>GET /api/sites</span>
+            </a>
+          </li>
+          <li>
+            <a href="/health" target="_blank">
+              <i data-lucide="activity" class="lucide-icon-xs"></i>
+              <span>GET /health</span>
+            </a>
+          </li>
+          <li>
+            <a href="/api/info" target="_blank">
+              <i data-lucide="info" class="lucide-icon-xs"></i>
+              <span>GET /api/info</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/ichshakib/portalix" target="_blank" rel="noopener noreferrer">
+              <i data-lucide="github" class="lucide-icon-xs"></i>
+              <span>GitHub Repository</span>
+            </a>
+          </li>
+          <li>
+            <a href="#search-input" onclick="document.getElementById('search-input').focus(); return false;">
+              <i data-lucide="search" class="lucide-icon-xs"></i>
+              <span>Instant Search (/)</span>
+            </a>
+          </li>
         </ul>
       </div>
 
@@ -59,7 +88,8 @@
       </div>
       <div>
         <button class="back-to-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-          ↑ Back to Top
+          <i data-lucide="arrow-up" class="lucide-icon-xs"></i>
+          <span>Back to Top</span>
         </button>
       </div>
     </div>
