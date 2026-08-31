@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit a Website — Portalix Directory</title>
+  <meta name="description" content="Request or suggest a new streaming website, anime hub, manga reader, sports stream, or app to be indexed in the Portalix directory.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --bg: #090a0c;
+      --bg-card: #13151a;
+      --bg-card-hover: #191c23;
+      --bg-input: #0e1014;
+      --border: #21252d;
+      --border-light: #2c313c;
+      --border-focus: #4b5262;
+      --text: #f0f2f5;
+      --text-muted: #8e94a0;
+      --text-dim: #5c6270;
+      --accent: #e2e8f0;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Lucide Icon Helpers */
+    .lucide-icon-xs {
+      width: 13px;
+      height: 13px;
+      stroke-width: 2.2;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    .lucide-icon-sm {
+      width: 15px;
+      height: 15px;
+      stroke-width: 2;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    .lucide-icon-md {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    /* Header & Navigation */
+    header.main-header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(9, 10, 12, 0.92);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 24px;
+    }
+
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-badge {
+      width: 32px;
+      height: 32px;
+      background: #1e222b;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f1f5f9;
+    }
+
+    .brand-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .brand-tagline {
+      font-size: 0.72rem;
+      background: #1a1d24;
+      color: var(--text-muted);
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      font-weight: 500;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-link {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      transition: all 0.15s;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--text);
+      background: #181b22;
+    }
+
+    .nav-icon-btn {
+      color: var(--text-muted);
+      padding: 6px 8px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.15s, background 0.15s;
+    }
+
+    .nav-icon-btn:hover {
+      color: var(--text);
+      background: #181b22;
+    }
+
+    /* Page Content */
+    main.page-content {
+      flex: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+      width: 100%;
+    }
+
+    .page-title-group {
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: #14171d;
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 9999px;
+      margin-bottom: 14px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .page-title {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .page-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    /* Email Highlight Box */
+    .email-banner {
+      background: #14171d;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .email-address {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+      color: #ffffff;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-email-direct {
+      background: #232731;
+      border: 1px solid var(--border-light);
+      color: #ffffff;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .btn-email-direct:hover {
+      background: #2e3340;
+      border-color: var(--border-focus);
+    }
+
+    /* Form Container */
+    .form-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 36px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .form-group .field-hint {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      margin-top: 4px;
+    }
+
+    .form-control {
+      width: 100%;
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .form-control:focus {
+      border-color: var(--border-focus);
+      background: #111318;
+    }
+
+    select.form-control {
+      cursor: pointer;
+    }
+
+    select.form-control option {
+      background: #13151a;
+      color: #fff;
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .btn-submit {
+      background: #272b35;
+      border: 1px solid #3e4453;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.15s;
+    }
+
+    .btn-submit:hover {
+      background: #333845;
+      border-color: #525a6e;
+    }
+
+    .btn-copy-template {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.15s;
+    }
+
+    .btn-copy-template:hover {
+      background: #181b22;
+      color: var(--text);
+    }
+
+    /* Guidelines */
+    .guidelines-box {
+      background: #0f1115;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      font-size: 0.88rem;
+    }
+
+    .guidelines-box h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .guidelines-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      color: var(--text-muted);
+    }
+
+    .guidelines-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    /* Footer */
+    footer.detailed-footer {
+      background: #0b0c0f;
+      border-top: 1px solid var(--border);
+      padding: 56px 24px 24px;
+      margin-top: auto;
+    }
+
+    .footer-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .footer-brand-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-brand-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .footer-col h4 {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul li a {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      transition: color 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--text);
+    }
+
+    .footer-badge-count {
+      font-size: 0.7rem;
+      background: #1e222b;
+      color: var(--text-dim);
+      padding: 1px 5px;
+      border-radius: 4px;
+      margin-left: auto;
+    }
+
+    .legal-notice {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
+    .footer-bottom-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .back-to-top-btn {
+      background: #14171d;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s;
+    }
+
+    .back-to-top-btn:hover {
+      background: #1e222b;
+      color: var(--text);
+    }
+
+    /* Toast */
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #191c23;
+      border: 1px solid var(--border-light);
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      font-size: 0.85rem;
+      font-weight: 500;
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all 0.25s ease;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    #toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Partial -->
+  <%- include('partials/header', { showSearch: false, activePage: 'submit' }) %>
+
+  <!-- Main Content -->
+  <main class="page-content">
+    <div class="page-title-group">
+      <div class="page-tag">
+        <i data-lucide="plus-circle" class="lucide-icon-xs"></i>
+        <span>Request Indexing</span>
+      </div>
+      <h1 class="page-title">Submit a Resource to Portalix</h1>
+      <p class="page-subtitle">Suggest a streaming website, anime portal, manga reader, live sports broadcaster, or application to be indexed.</p>
+    </div>
+
+    <!-- Direct Email Banner -->
+    <div class="email-banner">
+      <div>
+        <div style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 2px;">Official Submission Email</div>
+        <div class="email-address">
+          <i data-lucide="mail" class="lucide-icon-sm"></i>
+          <span>ichshakib@gmail.com</span>
+        </div>
+      </div>
+      <a href="mailto:ichshakib@gmail.com?subject=Portalix%20Site%20Submission" class="btn-email-direct">
+        <i data-lucide="send" class="lucide-icon-xs"></i>
+        <span>Send Direct Email</span>
+      </a>
+    </div>
+
+    <!-- Submission Form -->
+    <div class="form-card">
+      <h2 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+        <i data-lucide="edit-3" class="lucide-icon-sm"></i>
+        <span>Submission Form</span>
+      </h2>
+
+      <form id="submission-form" onsubmit="handleFormSubmit(event)">
+        <div class="form-group">
+          <label for="site-name">Website / Application Name *</label>
+          <input type="text" id="site-name" class="form-control" placeholder="e.g. StreamEast, Comick, FlixHub" required />
+        </div>
+
+        <div class="form-group">
+          <label for="site-url">Website URL *</label>
+          <input type="url" id="site-url" class="form-control" placeholder="https://example.com" required />
+          <div class="field-hint">Must include full protocol (https://).</div>
+        </div>
+
+        <div class="form-group">
+          <label for="site-category">Primary Category *</label>
+          <select id="site-category" class="form-control" required>
+            <option value="" disabled selected>Select category...</option>
+            <option value="Movies & Shows">Movies &amp; Shows</option>
+            <option value="Anime">Anime</option>
+            <option value="Manga">Manga</option>
+            <option value="Live TV & Sports">Live TV &amp; Sports</option>
+            <option value="Paid">Paid Platform</option>
+            <option value="Apps">Applications / APKs</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="site-region">Target Regions</label>
+          <input type="text" id="site-region" class="form-control" placeholder="e.g. Global, US, UK, IN" value="Global" />
+        </div>
+
+        <div class="form-group">
+          <label for="site-desc">Description &amp; Highlights</label>
+          <textarea id="site-desc" class="form-control" placeholder="Briefly describe the site features (e.g. ad-free, 4K multi-server, clean player, subtitle availability)..."></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-submit">
+            <i data-lucide="mail" class="lucide-icon-xs"></i>
+            <span>Submit via Email</span>
+          </button>
+          <button type="button" class="btn-copy-template" onclick="copyTemplate()">
+            <i data-lucide="copy" class="lucide-icon-xs"></i>
+            <span>Copy Submission Details</span>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Guidelines Box -->
+    <div class="guidelines-box">
+      <h3>
+        <i data-lucide="check-square" class="lucide-icon-sm"></i>
+        <span>Submission Criteria</span>
+      </h3>
+      <ul class="guidelines-list">
+        <li>
+          <i data-lucide="check" class="lucide-icon-xs" style="color: #4ade80; margin-top: 3px;"></i>
+          <span>The website must be actively online and operational.</span>
+        </li>
+        <li>
+          <i data-lucide="check" class="lucide-icon-xs" style="color: #4ade80; margin-top: 3px;"></i>
+          <span>No intrusive malware, harmful crypto-miners, or deceptive locker scams.</span>
+        </li>
+        <li>
+          <i data-lucide="check" class="lucide-icon-xs" style="color: #4ade80; margin-top: 3px;"></i>
+          <span>Submissions are manually reviewed before being added to the public index.</span>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- Detailed Footer Partial -->
+  <%- include('partials/footer') %>
+
+  <!-- Toast -->
+  <div id="toast">Copied to clipboard!</div>
+
+  <script>
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+
+    const toast = document.getElementById('toast');
+
+    function showToast(text) {
+      toast.textContent = text;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2400);
+    }
+
+    function buildTemplate() {
+      const name = document.getElementById('site-name').value.trim() || '[Site Name]';
+      const url = document.getElementById('site-url').value.trim() || '[URL]';
+      const cat = document.getElementById('site-category').value || '[Category]';
+      const region = document.getElementById('site-region').value.trim() || 'Global';
+      const desc = document.getElementById('site-desc').value.trim() || '[No additional description]';
+
+      return `Portalix Site Submission Request:\n\n` +
+             `Site Name: ${name}\n` +
+             `URL: ${url}\n` +
+             `Category: ${cat}\n` +
+             `Regions: ${region}\n` +
+             `Description: ${desc}\n`;
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('site-name').value.trim();
+      const body = encodeURIComponent(buildTemplate());
+      const subject = encodeURIComponent(`Portalix Submission: ${name}`);
+      window.location.href = `mailto:ichshakib@gmail.com?subject=${subject}&body=${body}`;
+    }
+
+    function copyTemplate() {
+      const text = buildTemplate();
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('✓ Submission details copied!');
+      });
+    }
+  </script>
+</body>
+</html>

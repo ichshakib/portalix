@@ -12,6 +12,13 @@
         <p class="footer-brand-desc">
           Portalix is an open-source, high-efficiency directory designed for swift navigation across the web's best streaming hubs, anime indexes, manga readers, and sports streams.
         </p>
+        <div style="display: flex; gap: 12px; margin-top: 4px;">
+          <a href="/about" style="font-size: 0.8rem; color: var(--text-muted); text-decoration: underline;">About Project</a>
+          <span style="color: var(--border-light);">•</span>
+          <a href="/submit" style="font-size: 0.8rem; color: var(--text-muted); text-decoration: underline;">Submit a Site</a>
+          <span style="color: var(--border-light);">•</span>
+          <a href="mailto:ichshakib@gmail.com" style="font-size: 0.8rem; color: var(--text-muted); text-decoration: underline;">Contact</a>
+        </div>
       </div>
 
       <!-- Categories Links -->
@@ -20,7 +27,7 @@
         <ul>
           <% categories.forEach(function(cat) { %>
             <li>
-              <a href="#section-<%= cat.id %>" onclick="filterByCategory('<%= cat.name %>'); return false;">
+              <a href="/#section-<%= cat.id %>" onclick="if (typeof filterByCategory === 'function') { filterByCategory('<%= cat.name %>'); return false; }">
                 <i data-lucide="<%= cat.icon %>" class="lucide-icon-xs"></i>
                 <span><%= cat.name %></span>
                 <span class="footer-badge-count"><%= cat.count %></span>
@@ -30,10 +37,28 @@
         </ul>
       </div>
 
-      <!-- API & Dev Links -->
+      <!-- API & Navigation Links -->
       <div class="footer-col">
-        <h4>Developers &amp; API</h4>
+        <h4>Navigation &amp; API</h4>
         <ul>
+          <li>
+            <a href="/">
+              <i data-lucide="compass" class="lucide-icon-xs"></i>
+              <span>Directory Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="/about">
+              <i data-lucide="info" class="lucide-icon-xs"></i>
+              <span>About Portalix</span>
+            </a>
+          </li>
+          <li>
+            <a href="/submit">
+              <i data-lucide="plus-circle" class="lucide-icon-xs"></i>
+              <span>Submit Resource</span>
+            </a>
+          </li>
           <li>
             <a href="/api/sites" target="_blank">
               <i data-lucide="code-2" class="lucide-icon-xs"></i>
@@ -47,36 +72,26 @@
             </a>
           </li>
           <li>
-            <a href="/api/info" target="_blank">
-              <i data-lucide="info" class="lucide-icon-xs"></i>
-              <span>GET /api/info</span>
-            </a>
-          </li>
-          <li>
             <a href="https://github.com/ichshakib/portalix" target="_blank" rel="noopener noreferrer">
               <i data-lucide="github" class="lucide-icon-xs"></i>
               <span>GitHub Repository</span>
             </a>
           </li>
-          <li>
-            <a href="#search-input" onclick="document.getElementById('search-input').focus(); return false;">
-              <i data-lucide="search" class="lucide-icon-xs"></i>
-              <span>Instant Search (/)</span>
-            </a>
-          </li>
         </ul>
       </div>
 
-      <!-- Disclaimer & Legal -->
+      <!-- Disclaimer & Contact -->
       <div class="footer-col">
-        <h4>Disclaimer &amp; Legal</h4>
+        <h4>Disclaimer &amp; Contact</h4>
         <p class="legal-notice">
-          Portalix operates strictly as an indexing service and search portal. We do not host, store, stream, or broadcast any media or copyrighted files on our servers. All links point to external third-party services.
+          Portalix operates strictly as an indexing directory. We do not host, store, stream, or broadcast any media or copyrighted content.
         </p>
-        <div style="margin-top: 12px;">
-          <p class="legal-notice" style="color: var(--text-muted);">
-            For DMCA or domain inquiries, please contact the respective hosting providers or review our repository.
-          </p>
+        <div style="margin-top: 14px; background: #14171d; border: 1px solid var(--border); padding: 10px 12px; border-radius: var(--radius-sm);">
+          <div style="font-size: 0.76rem; color: var(--text-dim); margin-bottom: 2px;">Direct Inquiries &amp; Submissions:</div>
+          <a href="mailto:ichshakib@gmail.com" style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--text); display: inline-flex; align-items: center; gap: 6px;">
+            <i data-lucide="mail" class="lucide-icon-xs"></i>
+            <span>ichshakib@gmail.com</span>
+          </a>
         </div>
       </div>
     </div>

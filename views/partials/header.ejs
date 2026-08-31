@@ -2,26 +2,46 @@
   <header class="main-header">
     <div class="header-inner">
       <div class="logo-container">
-        <div class="logo-badge">
-          <i data-lucide="layers" style="width:18px;height:18px;"></i>
-        </div>
-        <div>
-          <a href="/" class="brand-title">Portalix</a>
-        </div>
+        <a href="/" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
+          <div class="logo-badge">
+            <i data-lucide="layers" style="width:18px;height:18px;"></i>
+          </div>
+          <span class="brand-title">Portalix</span>
+        </a>
         <span class="brand-tagline">Directory</span>
       </div>
 
+      <% if (typeof showSearch !== 'undefined' && showSearch) { %>
       <div class="search-wrapper">
         <i data-lucide="search" class="search-icon"></i>
         <input 
           type="text" 
           id="search-input" 
           class="search-input" 
-          placeholder="Search <%= totalCount %> streaming sites, anime, manga, sports, apps..." 
+          placeholder="Search <%= typeof totalCount !== 'undefined' ? totalCount : 76 %> streaming sites, anime, manga, sports..." 
           autocomplete="off"
           aria-label="Search directory"
         />
         <span class="search-shortcut">/</span>
       </div>
+      <% } %>
+
+      <nav class="header-nav">
+        <a href="/" class="nav-link <%= typeof activePage !== 'undefined' && activePage === 'home' ? 'active' : '' %>">
+          <i data-lucide="compass" class="lucide-icon-xs"></i>
+          <span>Directory</span>
+        </a>
+        <a href="/about" class="nav-link <%= typeof activePage !== 'undefined' && activePage === 'about' ? 'active' : '' %>">
+          <i data-lucide="info" class="lucide-icon-xs"></i>
+          <span>About</span>
+        </a>
+        <a href="/submit" class="nav-link <%= typeof activePage !== 'undefined' && activePage === 'submit' ? 'active' : '' %>">
+          <i data-lucide="plus-circle" class="lucide-icon-xs"></i>
+          <span>Submit Site</span>
+        </a>
+        <a href="https://github.com/ichshakib/portalix" target="_blank" rel="noopener noreferrer" class="nav-icon-btn" title="GitHub Repository" aria-label="GitHub Repository">
+          <i data-lucide="github" class="lucide-icon-sm"></i>
+        </a>
+      </nav>
     </div>
   </header>

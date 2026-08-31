@@ -61,10 +61,26 @@ const getCategoryList = (sites: SiteItem[]): CategoryInfo[] => {
 const sites: SiteItem[] = sitesData as SiteItem[];
 const categories: CategoryInfo[] = getCategoryList(sites);
 
-// Root Route: Server-side Render with EJS
+// Root Route: Directory Index
 app.get('/', (_req: Request, res: Response) => {
   res.render('index', {
     sites,
+    categories,
+    totalCount: sites.length,
+  });
+});
+
+// About Page
+app.get('/about', (_req: Request, res: Response) => {
+  res.render('about', {
+    categories,
+    totalCount: sites.length,
+  });
+});
+
+// Submit / Request Site Page
+app.get('/submit', (_req: Request, res: Response) => {
+  res.render('submit', {
     categories,
     totalCount: sites.length,
   });

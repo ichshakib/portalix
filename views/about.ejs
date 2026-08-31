@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Portalix — High-Performance Streaming Directory</title>
+  <meta name="description" content="Learn more about Portalix: an open-source, minimalist web directory and media indexer for movies, anime, manga, and sports.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --bg: #090a0c;
+      --bg-card: #13151a;
+      --bg-card-hover: #191c23;
+      --bg-input: #0e1014;
+      --border: #21252d;
+      --border-light: #2c313c;
+      --border-focus: #4b5262;
+      --text: #f0f2f5;
+      --text-muted: #8e94a0;
+      --text-dim: #5c6270;
+      --accent: #e2e8f0;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Lucide Icon Helpers */
+    .lucide-icon-xs {
+      width: 13px;
+      height: 13px;
+      stroke-width: 2.2;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    .lucide-icon-sm {
+      width: 15px;
+      height: 15px;
+      stroke-width: 2;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    .lucide-icon-md {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    /* Header & Navigation */
+    header.main-header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(9, 10, 12, 0.92);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 24px;
+    }
+
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-badge {
+      width: 32px;
+      height: 32px;
+      background: #1e222b;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f1f5f9;
+    }
+
+    .brand-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .brand-tagline {
+      font-size: 0.72rem;
+      background: #1a1d24;
+      color: var(--text-muted);
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      font-weight: 500;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-link {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      transition: all 0.15s;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--text);
+      background: #181b22;
+    }
+
+    .nav-icon-btn {
+      color: var(--text-muted);
+      padding: 6px 8px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.15s, background 0.15s;
+    }
+
+    .nav-icon-btn:hover {
+      color: var(--text);
+      background: #181b22;
+    }
+
+    /* Page Content */
+    main.page-content {
+      flex: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+      width: 100%;
+    }
+
+    .page-title-group {
+      margin-bottom: 36px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: #14171d;
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 9999px;
+      margin-bottom: 14px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .page-title {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .page-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    /* Content Sections */
+    .content-block {
+      margin-bottom: 32px;
+    }
+
+    .content-block h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .content-block p {
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 640px) {
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+
+    .feature-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .feature-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+
+    /* Contact Card */
+    .contact-card {
+      background: #14171d;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .contact-btn {
+      background: #232731;
+      border: 1px solid var(--border-light);
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.15s;
+    }
+
+    .contact-btn:hover {
+      background: #2f3442;
+      border-color: var(--border-focus);
+    }
+
+    /* Footer */
+    footer.detailed-footer {
+      background: #0b0c0f;
+      border-top: 1px solid var(--border);
+      padding: 56px 24px 24px;
+      margin-top: auto;
+    }
+
+    .footer-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .footer-brand-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-brand-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .footer-col h4 {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul li a {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      transition: color 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--text);
+    }
+
+    .footer-badge-count {
+      font-size: 0.7rem;
+      background: #1e222b;
+      color: var(--text-dim);
+      padding: 1px 5px;
+      border-radius: 4px;
+      margin-left: auto;
+    }
+
+    .legal-notice {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
+    .footer-bottom-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .back-to-top-btn {
+      background: #14171d;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s;
+    }
+
+    .back-to-top-btn:hover {
+      background: #1e222b;
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Partial -->
+  <%- include('partials/header', { showSearch: false, activePage: 'about' }) %>
+
+  <!-- Main Content -->
+  <main class="page-content">
+    <div class="page-title-group">
+      <div class="page-tag">
+        <i data-lucide="info" class="lucide-icon-xs"></i>
+        <span>About Portalix</span>
+      </div>
+      <h1 class="page-title">Minimal Media &amp; Streaming Index</h1>
+      <p class="page-subtitle">A fast, open-source resource directory designed to cut through clutter and deliver direct access to verified online tools and media hubs.</p>
+    </div>
+
+    <!-- About Section -->
+    <div class="content-block">
+      <h2>
+        <i data-lucide="compass" class="lucide-icon-md"></i>
+        <span>Our Mission</span>
+      </h2>
+      <p>
+        The modern web is filled with broken redirects, bloated ad networks, and difficult-to-navigate lists. <strong>Portalix</strong> was built to provide an instant, lightweight, and clean directory of verified entertainment sources, anime hubs, manga readers, live sports streams, official paid OTT platforms, and client apps.
+      </p>
+      <p>
+        Every link in this directory is cataloged with domain details, category tags, and verified security flags to ensure safe and quick access.
+      </p>
+    </div>
+
+    <!-- Core Principles -->
+    <div class="content-block">
+      <h2>
+        <i data-lucide="shield" class="lucide-icon-md"></i>
+        <span>Core Principles</span>
+      </h2>
+      
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-card-header">
+            <i data-lucide="zap" class="lucide-icon-sm"></i>
+            <span>Ultra Fast &amp; Clean</span>
+          </div>
+          <p>Instant server-rendered HTML with zero bloat and microsecond response times.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-header">
+            <i data-lucide="search" class="lucide-icon-sm"></i>
+            <span>Instant Search</span>
+          </div>
+          <p>Live keyboard-driven fuzzy filtering across site titles, domains, tags, and categories.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-header">
+            <i data-lucide="bookmark" class="lucide-icon-sm"></i>
+            <span>Client-side Bookmarking</span>
+          </div>
+          <p>Pin your favorite services locally in your browser with offline-safe localStorage.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-header">
+            <i data-lucide="code" class="lucide-icon-sm"></i>
+            <span>Open API</span>
+          </div>
+          <p>Programmatic access to the full dataset via clean JSON API endpoints.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technology -->
+    <div class="content-block">
+      <h2>
+        <i data-lucide="cpu" class="lucide-icon-md"></i>
+        <span>Architecture &amp; Stack</span>
+      </h2>
+      <p>
+        Portalix is built on <strong>Node.js</strong> and <strong>TypeScript</strong> using <strong>Express</strong>, <strong>EJS</strong> templating, and <strong>Lucide Icons</strong>. It operates with strict type definitions and zero extraneous client framework overhead.
+      </p>
+    </div>
+
+    <!-- Contact & Submission Banner -->
+    <div class="contact-card">
+      <div>
+        <h3 style="font-size: 1.05rem; font-weight: 600; margin-bottom: 4px;">Want to suggest or index a site?</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0;">Submit website details or reach out for inquiries.</p>
+      </div>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <a href="/submit" class="contact-btn">
+          <i data-lucide="plus-circle" class="lucide-icon-xs"></i>
+          <span>Submit Site</span>
+        </a>
+        <a href="mailto:ichshakib@gmail.com" class="contact-btn" style="background: transparent;">
+          <i data-lucide="mail" class="lucide-icon-xs"></i>
+          <span>ichshakib@gmail.com</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Detailed Footer Partial -->
+  <%- include('partials/footer') %>
+
+  <script>
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+  </script>
+</body>
+</html>
