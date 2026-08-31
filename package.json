@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/ichshakib/portalix/issues"
   },
-  "homepage": "https://github.com/ichshakib/portalix#readme"
+  "homepage": "https://github.com/ichshakib/portalix#readme",
+  "devDependencies": {
+    "tsc-watch": "^7.2.1",
+    "typescript": "^7.0.2"
+  }
 }
