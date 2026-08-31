@@ -1,6 +1,8 @@
-# Portalix
-
 <div align="center">
+
+<img src="public/logo.svg" alt="Portalix Logo" width="80" height="80" />
+
+# Portalix
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-7.0-blue.svg?logo=typescript)](https://www.typescriptlang.org/)
