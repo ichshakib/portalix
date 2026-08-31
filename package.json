@@ -1,7 +1,7 @@
 {
   "name": "portalix",
   "version": "1.0.0",
-  "description": "",
+  "description": "A high-performance, minimalist directory and API platform for curated streaming services, anime, manga, live sports, and media applications.",
   "main": "dist/index.js",
   "private": "true",
   "scripts": {
@@ -14,7 +14,18 @@
     "type": "git",
     "url": "git+https://github.com/ichshakib/portalix.git"
   },
-  "keywords": [],
+  "keywords": [
+    "portalix",
+    "streaming-directory",
+    "anime",
+    "manga",
+    "movies",
+    "sports",
+    "express",
+    "typescript",
+    "ejs",
+    "api"
+  ],
   "type": "commonjs",
   "bugs": {
     "url": "https://github.com/ichshakib/portalix/issues"
