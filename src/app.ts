@@ -1,5 +1,6 @@
 import express, { type Request, type Response } from 'express';
 import path from 'node:path';
+import rateLimit from 'express-rate-limit';
 import sitesData from './data/sites.json';
 
 export interface SiteItem {
@@ -31,11 +32,42 @@ const app = express();
 const PUBLIC_DIR = path.resolve(process.cwd(), 'public');
 const VIEWS_DIR = path.resolve(process.cwd(), 'views');
 
+// Trust reverse proxies (e.g. Vercel, Nginx, Cloudflare)
+app.set('trust proxy', 1);
+
 // Configure View Engine (EJS)
 app.set('view engine', 'ejs');
 app.set('views', VIEWS_DIR);
 
-// Middleware
+// Global Rate Limiter: 300 requests per 15 minutes per IP
+const globalLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 300,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: {
+    status: 429,
+    message: 'Too many requests from this IP, please try again after 15 minutes.',
+  },
+});
+
+// API Rate Limiter: 100 requests per 5 minutes per IP
+const apiLimiter = rateLimit({
+  windowMs: 5 * 60 * 1000,
+  max: 100,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: {
+    status: 429,
+    error: 'API rate limit exceeded. Please try again after 5 minutes.',
+  },
+});
+
+// Apply Rate Limiters
+app.use(globalLimiter);
+app.use('/api', apiLimiter);
+
+// Core Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(PUBLIC_DIR));
