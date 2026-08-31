@@ -160,19 +160,56 @@
       background: #181b22;
     }
 
-    .nav-icon-btn {
-      color: var(--text-muted);
-      padding: 6px 8px;
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: color 0.15s, background 0.15s;
+    /* Minimal Dark Scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
     }
 
-    .nav-icon-btn:hover {
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #20242d;
+      border-radius: 9999px;
+      border: 2px solid var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #333845;
+    }
+
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #20242d var(--bg);
+    }
+
+    .github-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #14171d;
+      border: 1px solid var(--border-light);
       color: var(--text);
-      background: #181b22;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 500;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+
+    .github-btn:hover {
+      background: #1f232c;
+      border-color: var(--border-focus);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .github-label {
+      font-weight: 600;
+      font-size: 0.8rem;
     }
 
     /* Search Bar */
