@@ -1,0 +1,66 @@
+  <!-- Detailed Footer -->
+  <footer class="detailed-footer">
+    <div class="footer-grid">
+      <!-- Brand & Mission -->
+      <div class="footer-brand">
+        <div class="footer-brand-title">
+          <span class="logo-badge" style="width:24px;height:24px;font-size:0.75rem;">P</span>
+          <span>Portalix Directory</span>
+        </div>
+        <p class="footer-brand-desc">
+          Portalix is an open-source, high-efficiency directory designed for swift navigation across the web's best streaming hubs, anime indexes, manga readers, and sports streams.
+        </p>
+      </div>
+
+      <!-- Categories Links -->
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <% categories.forEach(function(cat) { %>
+            <li>
+              <a href="#section-<%= cat.id %>" onclick="filterByCategory('<%= cat.name %>'); return false;">
+                <%= cat.name %> <span class="footer-badge-count"><%= cat.count %></span>
+              </a>
+            </li>
+          <% }); %>
+        </ul>
+      </div>
+
+      <!-- API & Dev Links -->
+      <div class="footer-col">
+        <h4>Developers &amp; API</h4>
+        <ul>
+          <li><a href="/api/sites" target="_blank">GET /api/sites</a></li>
+          <li><a href="/health" target="_blank">GET /health</a></li>
+          <li><a href="/api/info" target="_blank">GET /api/info</a></li>
+          <li><a href="https://github.com/ichshakib/portalix" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+          <li><a href="#search-input" onclick="document.getElementById('search-input').focus(); return false;">Instant Search (/)</a></li>
+        </ul>
+      </div>
+
+      <!-- Disclaimer & Legal -->
+      <div class="footer-col">
+        <h4>Disclaimer &amp; Legal</h4>
+        <p class="legal-notice">
+          Portalix operates strictly as an indexing service and search portal. We do not host, store, stream, or broadcast any media or copyrighted files on our servers. All links point to external third-party services.
+        </p>
+        <div style="margin-top: 12px;">
+          <p class="legal-notice" style="color: var(--text-muted);">
+            For DMCA or domain inquiries, please contact the respective hosting providers or review our repository.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom copyright row -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <span>© 2026 <strong>Portalix</strong>. All rights reserved.</span>
+      </div>
+      <div>
+        <button class="back-to-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+          ↑ Back to Top
+        </button>
+      </div>
+    </div>
+  </footer>

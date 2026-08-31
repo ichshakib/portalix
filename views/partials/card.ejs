@@ -1,0 +1,54 @@
+<% 
+  const isStarred = false; 
+  const faviconSrc = `https://www.google.com/s2/favicons?domain=${site.domain}&sz=64`;
+  const initials = site.name.slice(0, 2).toUpperCase();
+%>
+<div class="site-card" data-id="<%= site.id %>" data-name="<%= site.name.toLowerCase() %>" data-domain="<%= site.domain.toLowerCase() %>" data-category="<%= site.category.toLowerCase() %>" data-tags="<%= (site.tags || []).join(' ').toLowerCase() %>" onclick="window.open('<%= site.url %>', '_blank', 'noopener,noreferrer')" title="Open <%= site.name %> (<%= site.domain %>)">
+  <div class="card-top">
+    <div class="card-brand">
+      <div class="favicon-box">
+        <img src="<%= faviconSrc %>" alt="<%= site.name %>" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <span class="favicon-fallback" style="display:none;"><%= initials %></span>
+      </div>
+      <div class="card-title-group">
+        <div class="card-title"><%= site.name %></div>
+        <div class="card-domain">
+          <span><%= site.domain %></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-actions">
+      <button class="copy-link-btn" onclick="copyLink('<%= site.url %>', event)" title="Copy link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+      </button>
+      <button class="star-btn" data-star-id="<%= site.id %>" onclick="toggleStar('<%= site.id %>', event)" title="Bookmark">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="card-bottom">
+    <div class="tags-group">
+      <% if (site.isTrusted) { %>
+        <span class="tag-chip tag-trusted">✓ Trusted</span>
+      <% } %>
+      <% if (site.isFeatured) { %>
+        <span class="tag-chip tag-featured">★ Featured</span>
+      <% } %>
+      <span class="tag-chip tag-default"><%= site.category %></span>
+    </div>
+    <div class="card-ext-link">
+      <span>Open</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+        <polyline points="15 3 21 3 21 9"></polyline>
+        <line x1="10" y1="14" x2="21" y2="3"></line>
+      </svg>
+    </div>
+  </div>
+</div>

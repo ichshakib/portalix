@@ -21,7 +21,14 @@
   },
   "homepage": "https://github.com/ichshakib/portalix#readme",
   "devDependencies": {
+    "@types/ejs": "^3.1.5",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.4.0",
     "tsc-watch": "^7.2.1",
     "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "ejs": "^6.0.1",
+    "express": "^5.2.1"
   }
 }
