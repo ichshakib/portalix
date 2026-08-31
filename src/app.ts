@@ -32,8 +32,11 @@ const app = express();
 const PUBLIC_DIR = path.resolve(process.cwd(), 'public');
 const VIEWS_DIR = path.resolve(process.cwd(), 'views');
 
-// Trust reverse proxies (e.g. Vercel, Nginx, Cloudflare)
+// Trust reverse proxies (e.g. Vercel, Cloudflare, Nginx)
 app.set('trust proxy', 1);
+
+// Enable Strong ETags for accurate 304 Not Modified validation
+app.set('etag', 'strong');
 
 // Configure View Engine (EJS)
 app.set('view engine', 'ejs');
@@ -67,10 +70,13 @@ const apiLimiter = rateLimit({
 app.use(globalLimiter);
 app.use('/api', apiLimiter);
 
-// Core Middleware
+// Core Middleware & Static Assets Caching (7 days)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(PUBLIC_DIR));
+app.use(express.static(PUBLIC_DIR, {
+  maxAge: '7d',
+  etag: true,
+}));
 
 // Prepare Category Metadata with Lucide Icon identifiers
 const getCategoryList = (sites: SiteItem[]): CategoryInfo[] => {
@@ -92,8 +98,19 @@ const getCategoryList = (sites: SiteItem[]): CategoryInfo[] => {
 const sites: SiteItem[] = sitesData as SiteItem[];
 const categories: CategoryInfo[] = getCategoryList(sites);
 
-// Root Route: Directory Index
+// Cache-Control Header Presets
+const CACHE_HEADERS = {
+  // Edge/CDN cache 24h, browser cache 30 min, stale-while-revalidate 12h
+  PAGE: 'public, max-age=1800, s-maxage=86400, stale-while-revalidate=43200',
+  // Static API cache: Edge 24h, browser 1h, stale-while-revalidate 24h
+  API_STATIC: 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400',
+  // Dynamic info/status: Browser 1 min, Edge 10 min
+  DYNAMIC: 'public, max-age=60, s-maxage=600',
+};
+
+// Root Route: Directory Index (with Edge & Browser Caching)
 app.get('/', (_req: Request, res: Response) => {
+  res.setHeader('Cache-Control', CACHE_HEADERS.PAGE);
   res.render('index', {
     sites,
     categories,
@@ -101,29 +118,33 @@ app.get('/', (_req: Request, res: Response) => {
   });
 });
 
-// About Page
+// About Page (Cached)
 app.get('/about', (_req: Request, res: Response) => {
+  res.setHeader('Cache-Control', CACHE_HEADERS.PAGE);
   res.render('about', {
     categories,
     totalCount: sites.length,
   });
 });
 
-// Submit / Request Site Page
+// Submit / Request Site Page (Cached)
 app.get('/submit', (_req: Request, res: Response) => {
+  res.setHeader('Cache-Control', CACHE_HEADERS.PAGE);
   res.render('submit', {
     categories,
     totalCount: sites.length,
   });
 });
 
-// API Sites Directory route
+// API Sites Directory route (High-performance cached JSON response)
 app.get('/api/sites', (_req: Request, res: Response) => {
+  res.setHeader('Cache-Control', CACHE_HEADERS.API_STATIC);
   res.json(sites);
 });
 
 // API Info route
 app.get('/api/info', (_req: Request, res: Response) => {
+  res.setHeader('Cache-Control', CACHE_HEADERS.DYNAMIC);
   res.json({
     name: 'portalix',
     version: '1.0.0',
@@ -133,8 +154,9 @@ app.get('/api/info', (_req: Request, res: Response) => {
   });
 });
 
-// Health check route
+// Health check route (No-cache for real-time monitoring)
 app.get('/health', (_req: Request, res: Response) => {
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
   res.json({
     status: 'healthy',
     uptime: process.uptime(),
