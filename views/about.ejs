@@ -1,16 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Portalix — High-Performance Streaming Directory</title>
-  <meta name="description" content="Learn more about Portalix: an open-source, minimalist web directory and media indexer for movies, anime, manga, and sports.">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>About Portalix — High-Performance Streaming Directory &amp; Open Index</title>
+  <meta name="title" content="About Portalix — High-Performance Streaming Directory &amp; Open Index">
+  <meta name="description" content="Learn more about Portalix: an open-source, minimalist web directory and media indexer for movies, anime, manga, sports, and applications.">
+  <meta name="keywords" content="portalix about, streaming index, open source media directory, anime index, manga directory, sports streaming portal">
+  <meta name="author" content="Portalix">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="theme-color" content="#090a0c" id="meta-theme-color">
+  <link rel="canonical" href="https://portalix.vercel.app/about">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://portalix.vercel.app/about">
+  <meta property="og:site_name" content="Portalix">
+  <meta property="og:title" content="About Portalix — High-Performance Streaming Directory">
+  <meta property="og:description" content="Learn more about Portalix: an open-source, minimalist web directory and media indexer for movies, anime, manga, and sports.">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://portalix.vercel.app/about">
+  <meta name="twitter:title" content="About Portalix — High-Performance Streaming Directory">
+  <meta name="twitter:description" content="Learn more about Portalix: an open-source, minimalist web directory and media indexer.">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Portalix",
+    "url": "https://portalix.vercel.app/about",
+    "description": "About Portalix: An open-source, lightweight streaming & media directory.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Portalix",
+      "email": "ichshakib@gmail.com",
+      "url": "https://portalix.vercel.app/"
+    }
+  }
+  </script>
+
+  <!-- Prevent FOUC: Instant Device Theme Detection -->
+  <script>
+    (function() {
+      try {
+        const mode = localStorage.getItem('portalix_theme_mode') || 'auto';
+        if (mode === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        } else if (mode === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+        }
+      } catch(e) {}
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
+  
   <style>
     :root {
+      --color-scheme: dark;
       --bg: #090a0c;
       --bg-card: #13151a;
       --bg-card-hover: #191c23;
@@ -27,6 +86,38 @@
       --radius-lg: 14px;
     }
 
+    [data-theme="light"] {
+      --color-scheme: light;
+      --bg: #f8f9fa;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f1f3f5;
+      --bg-input: #ffffff;
+      --border: #e2e4e8;
+      --border-light: #d0d4dc;
+      --border-focus: #8c93a0;
+      --text: #111418;
+      --text-muted: #575e6b;
+      --text-dim: #8b929e;
+      --accent: #1e2229;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) {
+        --color-scheme: light;
+        --bg: #f8f9fa;
+        --bg-card: #ffffff;
+        --bg-card-hover: #f1f3f5;
+        --bg-input: #ffffff;
+        --border: #e2e4e8;
+        --border-light: #d0d4dc;
+        --border-focus: #8c93a0;
+        --text: #111418;
+        --text-muted: #575e6b;
+        --text-dim: #8b929e;
+        --accent: #1e2229;
+      }
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -41,11 +132,37 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      transition: background-color 0.2s ease, color 0.2s ease;
     }
 
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    /* Minimal Scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-light);
+      border-radius: 9999px;
+      border: 2px solid var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--border-focus);
+    }
+
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-light) var(--bg);
     }
 
     /* Lucide Icon Helpers */
@@ -79,7 +196,7 @@
     /* Header & Navigation */
     header.main-header {
       border-bottom: 1px solid var(--border);
-      background: rgba(9, 10, 12, 0.92);
+      background: var(--bg);
       backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
@@ -106,13 +223,13 @@
     .logo-badge {
       width: 32px;
       height: 32px;
-      background: #1e222b;
+      background: var(--bg-card);
       border: 1px solid var(--border-light);
       border-radius: var(--radius-sm);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #f1f5f9;
+      color: var(--text);
     }
 
     .brand-title {
@@ -124,7 +241,7 @@
 
     .brand-tagline {
       font-size: 0.72rem;
-      background: #1a1d24;
+      background: var(--bg-card);
       color: var(--text-muted);
       padding: 2px 7px;
       border-radius: 4px;
@@ -135,7 +252,7 @@
     .header-nav {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 12px;
     }
 
     .nav-link {
@@ -151,39 +268,40 @@
 
     .nav-link:hover, .nav-link.active {
       color: var(--text);
-      background: #181b22;
+      background: var(--bg-card-hover);
     }
 
-    /* Minimal Dark Scrollbar */
-    ::-webkit-scrollbar {
-      width: 7px;
-      height: 7px;
+    .theme-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 6px 11px;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
     }
 
-    ::-webkit-scrollbar-track {
-      background: var(--bg);
+    .theme-toggle-btn:hover {
+      background: var(--bg-card-hover);
+      color: var(--text);
+      border-color: var(--border-light);
     }
 
-    ::-webkit-scrollbar-thumb {
-      background: #20242d;
-      border-radius: 9999px;
-      border: 2px solid var(--bg);
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #333845;
-    }
-
-    * {
-      scrollbar-width: thin;
-      scrollbar-color: #20242d var(--bg);
+    .theme-label {
+      font-size: 0.78rem;
+      font-weight: 500;
     }
 
     .github-btn {
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      background: #14171d;
+      background: var(--bg-card);
       border: 1px solid var(--border-light);
       color: var(--text);
       padding: 6px 12px;
@@ -195,9 +313,9 @@
     }
 
     .github-btn:hover {
-      background: #1f232c;
+      background: var(--bg-card-hover);
       border-color: var(--border-focus);
-      color: #ffffff;
+      color: var(--text);
       transform: translateY(-1px);
     }
 
@@ -227,7 +345,7 @@
       gap: 6px;
       font-size: 0.78rem;
       color: var(--text-muted);
-      background: #14171d;
+      background: var(--bg-card);
       border: 1px solid var(--border);
       padding: 3px 10px;
       border-radius: 9999px;
@@ -240,6 +358,7 @@
       font-weight: 700;
       letter-spacing: -0.03em;
       margin-bottom: 8px;
+      color: var(--text);
     }
 
     .page-subtitle {
@@ -308,7 +427,7 @@
 
     /* Contact Card */
     .contact-card {
-      background: #14171d;
+      background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       padding: 24px;
@@ -321,9 +440,9 @@
     }
 
     .contact-btn {
-      background: #232731;
-      border: 1px solid var(--border-light);
-      color: #ffffff;
+      background: var(--border-light);
+      border: 1px solid var(--border-focus);
+      color: var(--text);
       padding: 10px 18px;
       border-radius: var(--radius-sm);
       font-size: 0.88rem;
@@ -335,13 +454,13 @@
     }
 
     .contact-btn:hover {
-      background: #2f3442;
-      border-color: var(--border-focus);
+      background: var(--bg-card-hover);
+      border-color: var(--text-dim);
     }
 
     /* Footer */
     footer.detailed-footer {
-      background: #0b0c0f;
+      background: var(--bg);
       border-top: 1px solid var(--border);
       padding: 56px 24px 24px;
       margin-top: auto;
@@ -420,7 +539,8 @@
 
     .footer-badge-count {
       font-size: 0.7rem;
-      background: #1e222b;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
       color: var(--text-dim);
       padding: 1px 5px;
       border-radius: 4px;
@@ -454,7 +574,7 @@
     }
 
     .back-to-top-btn {
-      background: #14171d;
+      background: var(--bg-card);
       border: 1px solid var(--border);
       color: var(--text-muted);
       padding: 6px 12px;
@@ -468,7 +588,7 @@
     }
 
     .back-to-top-btn:hover {
-      background: #1e222b;
+      background: var(--bg-card-hover);
       color: var(--text);
     }
   </style>
@@ -558,7 +678,7 @@
     <!-- Contact & Submission Banner -->
     <div class="contact-card">
       <div>
-        <h3 style="font-size: 1.05rem; font-weight: 600; margin-bottom: 4px;">Want to suggest or index a site?</h3>
+        <h3 style="font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; color: var(--text);">Want to suggest or index a site?</h3>
         <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0;">Submit website details or reach out for inquiries.</p>
       </div>
       <div style="display: flex; gap: 10px; flex-wrap: wrap;">
@@ -578,6 +698,65 @@
   <%- include('partials/footer') %>
 
   <script>
+    // Theme Management
+    let currentThemeMode = localStorage.getItem('portalix_theme_mode') || 'auto';
+
+    function applyTheme(mode) {
+      currentThemeMode = mode;
+      localStorage.setItem('portalix_theme_mode', mode);
+
+      const iconLight = document.getElementById('theme-icon-light');
+      const iconDark = document.getElementById('theme-icon-dark');
+      const iconAuto = document.getElementById('theme-icon-auto');
+      const label = document.getElementById('theme-label-text');
+      const metaThemeColor = document.getElementById('meta-theme-color');
+
+      if (mode === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        if (metaThemeColor) metaThemeColor.setAttribute('content', '#f8f9fa');
+        if (label) label.textContent = 'Light';
+        if (iconLight) iconLight.style.display = 'inline-block';
+        if (iconDark) iconDark.style.display = 'none';
+        if (iconAuto) iconAuto.style.display = 'none';
+      } else if (mode === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        if (metaThemeColor) metaThemeColor.setAttribute('content', '#090a0c');
+        if (label) label.textContent = 'Dark';
+        if (iconLight) iconLight.style.display = 'none';
+        if (iconDark) iconDark.style.display = 'inline-block';
+        if (iconAuto) iconAuto.style.display = 'none';
+      } else {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+        if (metaThemeColor) metaThemeColor.setAttribute('content', prefersDark ? '#090a0c' : '#f8f9fa');
+        if (label) label.textContent = 'Auto';
+        if (iconLight) iconLight.style.display = 'none';
+        if (iconDark) iconDark.style.display = 'none';
+        if (iconAuto) iconAuto.style.display = 'inline-block';
+      }
+
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', () => {
+        if (currentThemeMode === 'auto') applyTheme('dark');
+        else if (currentThemeMode === 'dark') applyTheme('light');
+        else applyTheme('auto');
+      });
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (currentThemeMode === 'auto') {
+        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        const metaThemeColor = document.getElementById('meta-theme-color');
+        if (metaThemeColor) metaThemeColor.setAttribute('content', e.matches ? '#090a0c' : '#f8f9fa');
+      }
+    });
+
+    applyTheme(currentThemeMode);
+
     if (window.lucide) {
       window.lucide.createIcons();
     }
