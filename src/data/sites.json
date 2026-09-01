@@ -1409,5 +1409,26 @@
     "description": "Modern interface, reliable server\\nRich subtitle , Actively updated\\nMedium library, Low Ads , Old site .",
     "addedAt": 1787843968441,
     "order": 16
+  },
+  {
+    "id": "ms2rareanimes01",
+    "name": "Rare Animes India",
+    "url": "https://www.rareanimes.mov/",
+    "domain": "rareanimes.mov",
+    "category": "Anime",
+    "regions": [
+      "IN"
+    ],
+    "tags": [
+      "india",
+      "new"
+    ],
+    "isTrusted": false,
+    "isNew": true,
+    "isFeatured": false,
+    "description": "India's largest Hindi, Tamil & Telugu dubbed anime hub. Free HD streaming & downloads with timely updates, a clean UI, and mobile-friendly design. Acts as an aggregator — no content is hosted directly.",
+    "addedAt": 1756745531000,
+    "order": 99,
+    "faviconUrl": "https://www.rareanimes.mov/wp-content/uploads/2023/05/LOGOs.png"
   }
 ]
