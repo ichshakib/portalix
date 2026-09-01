@@ -562,10 +562,13 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 128px;
-      transition: transform 0.15s, border-color 0.15s, background 0.15s;
+      min-height: 124px;
+      min-width: 0;
+      transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
       position: relative;
       cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
     }
 
     .site-card:hover {
@@ -574,10 +577,15 @@
       transform: translateY(-2px);
     }
 
+    .site-card:active {
+      transform: scale(0.99);
+    }
+
     .card-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
+      gap: 10px;
       margin-bottom: 12px;
     }
 
@@ -590,8 +598,8 @@
     }
 
     .favicon-box {
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: var(--radius-sm);
       background: var(--bg-card-hover);
       border: 1px solid var(--border);
@@ -961,14 +969,15 @@
       main.main-content {
         padding: 0 20px 48px;
       }
+      /* 2 columns on tablets */
       .cards-grid {
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
         gap: 12px;
       }
     }
 
     /* ─────────────────────────────────────
-       RESPONSIVE — MOBILE (≤ 640px)
+       RESPONSIVE — SMALL TABLET / LARGE PHONE (≤ 640px)
     ───────────────────────────────────── */
     @media (max-width: 640px) {
       .hero-banner {
@@ -997,15 +1006,59 @@
         gap: 4px;
         margin-bottom: 16px;
       }
-      .cards-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
+      /* category header: hide description on mobile */
+      .category-desc {
+        display: none;
       }
-      .category-section {
-        margin-bottom: 32px;
+      .category-header {
+        margin-bottom: 12px;
       }
       .category-title {
         font-size: 1rem;
+      }
+      .category-section {
+        margin-bottom: 28px;
+      }
+      /* Still 2 columns down to 480px */
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+      /* Tighten card internals for narrower 2-col layout */
+      .site-card {
+        padding: 12px;
+        min-height: 110px;
+      }
+      .card-brand {
+        gap: 8px;
+      }
+      .favicon-box {
+        width: 30px;
+        height: 30px;
+      }
+      .favicon-box img {
+        width: 18px;
+        height: 18px;
+      }
+      .card-title {
+        font-size: 0.88rem;
+      }
+      .card-domain {
+        font-size: 0.72rem;
+      }
+      .card-top {
+        margin-bottom: 8px;
+      }
+      .card-bottom {
+        padding-top: 8px;
+      }
+      .tag-chip {
+        font-size: 0.65rem;
+        padding: 2px 5px;
+      }
+      /* Slightly larger touch targets for action buttons */
+      .star-btn, .copy-link-btn {
+        padding: 6px;
       }
       footer.detailed-footer {
         padding: 40px 16px 20px;
@@ -1028,26 +1081,82 @@
     }
 
     /* ─────────────────────────────────────
-       RESPONSIVE — SMALL MOBILE (≤ 400px)
+       RESPONSIVE — MOBILE (≤ 480px) — single column
     ───────────────────────────────────── */
-    @media (max-width: 400px) {
-      .hero-heading {
-        font-size: 1.05rem;
+    @media (max-width: 480px) {
+      /* Switch to single column */
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
       }
+      /* In single-column mode the card is wide, restore full sizes */
+      .site-card {
+        padding: 14px;
+        min-height: auto;
+        /* Horizontal layout: brand on left, actions on right */
+      }
+      .favicon-box {
+        width: 36px;
+        height: 36px;
+      }
+      .favicon-box img {
+        width: 22px;
+        height: 22px;
+      }
+      .card-brand {
+        gap: 10px;
+      }
+      .card-title {
+        font-size: 0.95rem;
+      }
+      .card-domain {
+        font-size: 0.76rem;
+      }
+      .card-top {
+        margin-bottom: 10px;
+      }
+      .card-bottom {
+        padding-top: 9px;
+      }
+      .tag-chip {
+        font-size: 0.68rem;
+        padding: 2px 6px;
+      }
+      /* Show only one action button (hide copy, keep star) on very small screens */
       .filter-chip {
         padding: 5px 8px;
         font-size: 0.75rem;
         gap: 4px;
       }
+    }
+
+    /* ─────────────────────────────────────
+       RESPONSIVE — SMALL MOBILE (≤ 380px)
+    ───────────────────────────────────── */
+    @media (max-width: 380px) {
+      .hero-heading {
+        font-size: 1.05rem;
+      }
       .filter-count {
         display: none;
       }
+      .filter-chip {
+        padding: 5px 7px;
+        font-size: 0.72rem;
+      }
       .site-card {
         padding: 12px;
-        min-height: 110px;
       }
       .card-title {
-        font-size: 0.92rem;
+        font-size: 0.9rem;
+      }
+      /* Hide copy button on tiny phones to reduce clutter */
+      .copy-link-btn {
+        display: none;
+      }
+      /* Make star button slightly larger as single action */
+      .star-btn {
+        padding: 7px;
       }
     }
   </style>
