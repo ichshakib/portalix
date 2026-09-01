@@ -941,6 +941,115 @@
       transform: translateY(0);
       opacity: 1;
     }
+
+    /* ─────────────────────────────────────
+       RESPONSIVE — TABLET (≤ 900px)
+    ───────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero-banner {
+        padding: 24px 20px 16px;
+      }
+      .hero-heading {
+        font-size: 1.3rem;
+      }
+      .hero-sub {
+        font-size: 0.88rem;
+      }
+      .filter-bar {
+        padding: 10px 20px 16px;
+      }
+      main.main-content {
+        padding: 0 20px 48px;
+      }
+      .cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 12px;
+      }
+    }
+
+    /* ─────────────────────────────────────
+       RESPONSIVE — MOBILE (≤ 640px)
+    ───────────────────────────────────── */
+    @media (max-width: 640px) {
+      .hero-banner {
+        padding: 20px 16px 12px;
+      }
+      .hero-heading {
+        font-size: 1.15rem;
+      }
+      .hero-sub {
+        font-size: 0.83rem;
+      }
+      .filter-bar {
+        padding: 8px 16px 14px;
+        gap: 6px;
+      }
+      .filter-chip {
+        padding: 6px 10px;
+        font-size: 0.78rem;
+      }
+      main.main-content {
+        padding: 0 16px 40px;
+      }
+      .results-summary {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        margin-bottom: 16px;
+      }
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .category-section {
+        margin-bottom: 32px;
+      }
+      .category-title {
+        font-size: 1rem;
+      }
+      footer.detailed-footer {
+        padding: 40px 16px 20px;
+      }
+      .footer-grid {
+        gap: 28px;
+        margin-bottom: 32px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      #toast {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        justify-content: center;
+      }
+    }
+
+    /* ─────────────────────────────────────
+       RESPONSIVE — SMALL MOBILE (≤ 400px)
+    ───────────────────────────────────── */
+    @media (max-width: 400px) {
+      .hero-heading {
+        font-size: 1.05rem;
+      }
+      .filter-chip {
+        padding: 5px 8px;
+        font-size: 0.75rem;
+        gap: 4px;
+      }
+      .filter-count {
+        display: none;
+      }
+      .site-card {
+        padding: 12px;
+        min-height: 110px;
+      }
+      .card-title {
+        font-size: 0.92rem;
+      }
+    }
   </style>
 </head>
 <body>

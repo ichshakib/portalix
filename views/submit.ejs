@@ -751,6 +751,88 @@
       transform: translateY(0);
       opacity: 1;
     }
+
+    /* ─────────────────────────────────────
+       RESPONSIVE — TABLET (≤ 768px)
+    ───────────────────────────────────── */
+    @media (max-width: 768px) {
+      main.page-content {
+        padding: 32px 20px 60px;
+      }
+      .page-title {
+        font-size: 1.6rem;
+      }
+      footer.detailed-footer {
+        padding: 40px 20px 20px;
+      }
+    }
+
+    /* ─────────────────────────────────────
+       RESPONSIVE — MOBILE (≤ 540px)
+    ───────────────────────────────────── */
+    @media (max-width: 540px) {
+      main.page-content {
+        padding: 24px 16px 48px;
+      }
+      .page-title {
+        font-size: 1.35rem;
+        letter-spacing: -0.02em;
+      }
+      .page-subtitle {
+        font-size: 0.9rem;
+      }
+      .page-title-group {
+        margin-bottom: 24px;
+        padding-bottom: 18px;
+      }
+      .email-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px;
+      }
+      .email-address {
+        font-size: 0.85rem;
+        word-break: break-all;
+      }
+      .btn-email-direct {
+        width: 100%;
+        justify-content: center;
+      }
+      .form-card {
+        padding: 20px 16px;
+      }
+      .form-actions {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .btn-submit,
+      .btn-copy-template {
+        width: 100%;
+        justify-content: center;
+      }
+      .guidelines-box {
+        padding: 16px;
+      }
+      footer.detailed-footer {
+        padding: 36px 16px 16px;
+      }
+      .footer-grid {
+        gap: 24px;
+        margin-bottom: 28px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      #toast {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>

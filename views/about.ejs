@@ -633,6 +633,71 @@
       background: var(--bg-card-hover);
       color: var(--text);
     }
+
+    /* ─────────────────────────────────────
+       RESPONSIVE — TABLET (≤ 768px)
+    ───────────────────────────────────── */
+    @media (max-width: 768px) {
+      main.page-content {
+        padding: 32px 20px 60px;
+      }
+      .page-title {
+        font-size: 1.6rem;
+      }
+      footer.detailed-footer {
+        padding: 40px 20px 20px;
+      }
+    }
+
+    /* ─────────────────────────────────────
+       RESPONSIVE — MOBILE (≤ 540px)
+    ───────────────────────────────────── */
+    @media (max-width: 540px) {
+      main.page-content {
+        padding: 24px 16px 48px;
+      }
+      .page-title {
+        font-size: 1.35rem;
+        letter-spacing: -0.02em;
+      }
+      .page-subtitle {
+        font-size: 0.9rem;
+      }
+      .page-title-group {
+        margin-bottom: 24px;
+        padding-bottom: 18px;
+      }
+      .content-block h2 {
+        font-size: 1.1rem;
+      }
+      .feature-card {
+        padding: 16px;
+      }
+      .contact-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px;
+      }
+      .contact-card > div:last-child {
+        width: 100%;
+      }
+      .contact-btn {
+        width: 100%;
+        justify-content: center;
+      }
+      footer.detailed-footer {
+        padding: 36px 16px 16px;
+      }
+      .footer-grid {
+        gap: 24px;
+        margin-bottom: 28px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+    }
   </style>
 </head>
 <body>

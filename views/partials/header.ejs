@@ -19,7 +19,7 @@
           type="text" 
           id="search-input" 
           class="search-input" 
-          placeholder="Search <%= typeof totalCount !== 'undefined' ? totalCount : 76 %> streaming sites, anime, manga, sports..." 
+          placeholder="Search <%= typeof totalCount !== 'undefined' ? totalCount : 76 %> sites..." 
           autocomplete="off"
           aria-label="Search directory"
         />
@@ -30,15 +30,15 @@
       <nav class="header-nav">
         <a href="/" class="nav-link <%= typeof activePage !== 'undefined' && activePage === 'home' ? 'active' : '' %>">
           <i data-lucide="compass" class="lucide-icon-xs"></i>
-          <span>Directory</span>
+          <span class="nav-label">Directory</span>
         </a>
         <a href="/about" class="nav-link <%= typeof activePage !== 'undefined' && activePage === 'about' ? 'active' : '' %>">
           <i data-lucide="info" class="lucide-icon-xs"></i>
-          <span>About</span>
+          <span class="nav-label">About</span>
         </a>
         <a href="/submit" class="nav-link <%= typeof activePage !== 'undefined' && activePage === 'submit' ? 'active' : '' %>">
           <i data-lucide="plus-circle" class="lucide-icon-xs"></i>
-          <span>Submit</span>
+          <span class="nav-label">Submit</span>
         </a>
 
         <!-- Theme Switcher Button -->
@@ -59,3 +59,54 @@
       </nav>
     </div>
   </header>
+
+  <style>
+    /* ── Responsive Header ── */
+    @media (max-width: 768px) {
+      header.main-header {
+        padding: 12px 16px;
+      }
+      .header-inner {
+        gap: 10px;
+      }
+      .search-wrapper {
+        order: 3;
+        flex-basis: 100%;
+        max-width: 100%;
+      }
+      .header-nav {
+        gap: 6px;
+      }
+      .nav-link {
+        padding: 6px 8px;
+      }
+      .theme-toggle-btn {
+        padding: 6px 8px;
+      }
+      .github-btn {
+        padding: 6px 8px;
+      }
+    }
+    @media (max-width: 540px) {
+      .nav-label {
+        display: none;
+      }
+      .theme-label {
+        display: none;
+      }
+      .github-label {
+        display: none;
+      }
+      .header-nav {
+        gap: 4px;
+      }
+      .brand-tagline {
+        display: none;
+      }
+    }
+    @media (max-width: 380px) {
+      .brand-title {
+        font-size: 1rem;
+      }
+    }
+  </style>
