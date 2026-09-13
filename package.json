@@ -1,0 +1,45 @@
+{
+  "name": "portalix",
+  "version": "1.0.0",
+  "description": "A high-performance, minimalist directory and API platform for curated streaming services, anime, manga, live sports, and media applications.",
+  "author": "Shakib Khan <ichshakib@gmail.com> (https://github.com/ichshakib)",
+  "main": "dist/src/index.js",
+  "private": true,
+  "scripts": {
+    "dev": "tsc-watch --onSuccess \"node dist/src/index.js\"",
+    "build": "tsc -p .",
+    "start": "node dist/src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ichshakib/portalix.git"
+  },
+  "keywords": [
+    "portalix",
+    "streaming-directory",
+    "anime",
+    "manga",
+    "movies",
+    "sports",
+    "express",
+    "typescript",
+    "ejs",
+    "api"
+  ],
+  "bugs": {
+    "url": "https://github.com/ichshakib/portalix/issues"
+  },
+  "homepage": "https://github.com/ichshakib/portalix#readme",
+  "devDependencies": {
+    "@types/ejs": "^3.1.5",
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.13.9",
+    "tsc-watch": "^7.2.1",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0"
+  }
+}
