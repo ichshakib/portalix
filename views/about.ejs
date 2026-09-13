@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>About Portalix — High-Performance Streaming Directory &amp; Open Index</title>
+  <meta name="title" content="About Portalix — High-Performance Streaming Directory &amp; Open Index">
+  <meta name="description" content="Learn more about Portalix: an open-source, minimalist web directory and media indexer for movies, anime, manga, sports, and applications.">
+  <meta name="keywords" content="portalix about, streaming index, open source media directory, anime index, manga directory, sports streaming portal">
+  <meta name="author" content="Portalix">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="theme-color" content="#090a0c" id="meta-theme-color">
+  <link rel="canonical" href="https://portalix.vercel.app/about">
+
+  <!-- Favicon & App Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://portalix.vercel.app/about">
+  <meta property="og:site_name" content="Portalix">
+  <meta property="og:title" content="About Portalix — High-Performance Streaming Directory">
+  <meta property="og:description" content="Learn more about Portalix: an open-source, minimalist web directory and media indexer for movies, anime, manga, and sports.">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://portalix.vercel.app/about">
+  <meta name="twitter:title" content="About Portalix — High-Performance Streaming Directory">
+  <meta name="twitter:description" content="Learn more about Portalix: an open-source, minimalist web directory and media indexer.">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Portalix",
+    "url": "https://portalix.vercel.app/about",
+    "description": "About Portalix: An open-source, lightweight streaming & media directory.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Portalix",
+      "email": "ichshakib@gmail.com",
+      "url": "https://portalix.vercel.app/"
+    }
+  }
+  </script>
+
+  <!-- Prevent FOUC: Instant Device Theme Detection -->
+  <script>
+    (function() {
+      try {
+        const mode = localStorage.getItem('portalix_theme_mode') || 'auto';
+        if (mode === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        } else if (mode === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+        }
+      } catch(e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <style>
+    :root {
+      --color-scheme: dark;
+      --bg: #090a0c;
+      --bg-card: #13151a;
+      --bg-card-hover: #191c23;
+      --bg-input: #0e1014;
+      --border: #21252d;
+      --border-light: #2c313c;
+      --border-focus: #4b5262;
+      --text: #f0f2f5;
+      --text-muted: #8e94a0;
+      --text-dim: #5c6270;
+      --accent: #e2e8f0;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+    }
+
+    [data-theme="light"] {
+      --color-scheme: light;
+      --bg: #f8f9fa;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f1f3f5;
+      --bg-input: #ffffff;
+      --border: #e2e4e8;
+      --border-light: #d0d4dc;
+      --border-focus: #8c93a0;
+      --text: #111418;
+      --text-muted: #575e6b;
+      --text-dim: #8b929e;
+      --accent: #1e2229;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) {
+        --color-scheme: light;
+        --bg: #f8f9fa;
+        --bg-card: #ffffff;
+        --bg-card-hover: #f1f3f5;
+        --bg-input: #ffffff;
+        --border: #e2e4e8;
+        --border-light: #d0d4dc;
+        --border-focus: #8c93a0;
+        --text: #111418;
+        --text-muted: #575e6b;
+        --text-dim: #8b929e;
+        --accent: #1e2229;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Minimal Scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-light);
+      border-radius: 9999px;
+      border: 2px solid var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--border-focus);
+    }
+
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-light) var(--bg);
+    }
+
+    /* Lucide Icon Helpers */
+    .lucide-icon-xs {
+      width: 13px;
+      height: 13px;
+      stroke-width: 2.2;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    .lucide-icon-sm {
+      width: 15px;
+      height: 15px;
+      stroke-width: 2;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    .lucide-icon-md {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    /* Header & Navigation */
+    header.main-header {
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 24px;
+    }
+
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-badge {
+      width: 32px;
+      height: 32px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+    }
+
+    .brand-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .brand-tagline {
+      font-size: 0.72rem;
+      background: var(--bg-card);
+      color: var(--text-muted);
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      font-weight: 500;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-link {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      transition: all 0.15s;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--text);
+      background: var(--bg-card-hover);
+    }
+
+    .theme-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 6px 11px;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .theme-toggle-btn:hover {
+      background: var(--bg-card-hover);
+      color: var(--text);
+      border-color: var(--border-light);
+    }
+
+    .theme-label {
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+
+    .github-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      color: var(--text);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 500;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+
+    .github-btn:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-focus);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .github-label {
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+
+    /* Page Content */
+    main.page-content {
+      flex: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+      width: 100%;
+    }
+
+    .page-title-group {
+      margin-bottom: 36px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 9999px;
+      margin-bottom: 14px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .page-title {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .page-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    /* Content Sections */
+    .content-block {
+      margin-bottom: 32px;
+    }
+
+    .content-block h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .content-block p {
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 640px) {
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+
+    .feature-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .feature-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+
+    /* Contact Card */
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .contact-btn {
+      background: var(--border-light);
+      border: 1px solid var(--border-focus);
+      color: var(--text);
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.15s;
+    }
+
+    .contact-btn:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--text-dim);
+    }
+
+    /* Footer */
+    footer.detailed-footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 56px 24px 24px;
+      margin-top: auto;
+    }
+
+    .footer-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .footer-brand-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-brand-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .footer-col h4 {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul li a {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      transition: color 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--text);
+    }
+
+    .footer-badge-count {
+      font-size: 0.7rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      padding: 1px 5px;
+      border-radius: 4px;
+      margin-left: auto;
+    }
+
+    .legal-notice {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    .footer-contact-box {
+      margin-top: 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      transition: background-color 0.15s, border-color 0.15s;
+    }
+
+    .footer-contact-box:hover {
+      border-color: var(--border-focus);
+    }
+
+    .footer-contact-label {
+      font-size: 0.76rem;
+      color: var(--text-dim);
+      margin-bottom: 4px;
+    }
+
+    .footer-contact-email {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .footer-contact-email:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
+    .footer-bottom-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .back-to-top-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s;
+    }
+
+    .back-to-top-btn:hover {
+      background: var(--bg-card-hover);
+      color: var(--text);
+    }
+
+    /* ─────────────────────────────────────
+       RESPONSIVE — TABLET (≤ 768px)
+    ───────────────────────────────────── */
+    @media (max-width: 768px) {
+      main.page-content {
+        padding: 32px 20px 60px;
+      }
+      .page-title {
+        font-size: 1.6rem;
+      }
+      footer.detailed-footer {
+        padding: 40px 20px 20px;
+      }
+    }
+
+    /* ─────────────────────────────────────
+       RESPONSIVE — MOBILE (≤ 540px)
+    ───────────────────────────────────── */
+    @media (max-width: 540px) {
+      main.page-content {
+        padding: 24px 16px 48px;
+      }
+      .page-title {
+        font-size: 1.35rem;
+        letter-spacing: -0.02em;
+      }
+      .page-subtitle {
+        font-size: 0.9rem;
+      }
+      .page-title-group {
+        margin-bottom: 24px;
+        padding-bottom: 18px;
+      }
+      .content-block h2 {
+        font-size: 1.1rem;
+      }
+      .feature-card {
+        padding: 16px;
+      }
+      .contact-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px;
+      }
+      .contact-card > div:last-child {
+        width: 100%;
+      }
+      .contact-btn {
+        width: 100%;
+        justify-content: center;
+      }
+      footer.detailed-footer {
+        padding: 36px 16px 16px;
+      }
+      .footer-grid {
+        gap: 24px;
+        margin-bottom: 28px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Partial -->
+  <%- include('partials/header', { showSearch: false, activePage: 'about' }) %>
+
+  <!-- Main Content -->
+  <main class="page-content">
+    <div class="page-title-group">
+      <div class="page-tag">
+        <i data-lucide="info" class="lucide-icon-xs"></i>
+        <span>About Portalix</span>
+      </div>
+      <h1 class="page-title">Minimal Media &amp; Streaming Index</h1>
+      <p class="page-subtitle">A fast, open-source resource directory designed to cut through clutter and deliver direct access to verified online tools and media hubs.</p>
+    </div>
+
+    <!-- About Section -->
+    <div class="content-block">
+      <h2>
+        <i data-lucide="compass" class="lucide-icon-md"></i>
+        <span>Our Mission</span>
+      </h2>
+      <p>
+        The modern web is filled with broken redirects, bloated ad networks, and difficult-to-navigate lists. <strong>Portalix</strong> was built to provide an instant, lightweight, and clean directory of verified entertainment sources, anime hubs, manga readers, live sports streams, official paid OTT platforms, and client apps.
+      </p>
+      <p>
+        Every link in this directory is cataloged with domain details, category tags, and verified security flags to ensure safe and quick access.
+      </p>
+    </div>
+
+    <!-- Core Principles -->
+    <div class="content-block">
+      <h2>
+        <i data-lucide="shield" class="lucide-icon-md"></i>
+        <span>Core Principles</span>
+      </h2>
+      
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-card-header">
+            <i data-lucide="zap" class="lucide-icon-sm"></i>
+            <span>Ultra Fast &amp; Clean</span>
+          </div>
+          <p>Instant server-rendered HTML with zero bloat and microsecond response times.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-header">
+            <i data-lucide="search" class="lucide-icon-sm"></i>
+            <span>Instant Search</span>
+          </div>
+          <p>Live keyboard-driven fuzzy filtering across site titles, domains, tags, and categories.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-header">
+            <i data-lucide="bookmark" class="lucide-icon-sm"></i>
+            <span>Client-side Bookmarking</span>
+          </div>
+          <p>Pin your favorite services locally in your browser with offline-safe localStorage.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-header">
+            <i data-lucide="code" class="lucide-icon-sm"></i>
+            <span>Open API</span>
+          </div>
+          <p>Programmatic access to the full dataset via clean JSON API endpoints.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technology -->
+    <div class="content-block">
+      <h2>
+        <i data-lucide="cpu" class="lucide-icon-md"></i>
+        <span>Architecture &amp; Stack</span>
+      </h2>
+      <p>
+        Portalix is built on <strong>Node.js</strong> and <strong>TypeScript</strong> using <strong>Express</strong>, <strong>EJS</strong> templating, and <strong>Lucide Icons</strong>. It operates with strict type definitions and zero extraneous client framework overhead.
+      </p>
+    </div>
+
+    <!-- Contact & Submission Banner -->
+    <div class="contact-card">
+      <div>
+        <h3 style="font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; color: var(--text);">Want to suggest or index a site?</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0;">Submit website details or reach out for inquiries.</p>
+      </div>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <a href="/submit" class="contact-btn">
+          <i data-lucide="plus-circle" class="lucide-icon-xs"></i>
+          <span>Submit Site</span>
+        </a>
+        <a href="mailto:ichshakib@gmail.com" class="contact-btn" style="background: transparent;">
+          <i data-lucide="mail" class="lucide-icon-xs"></i>
+          <span>ichshakib@gmail.com</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Detailed Footer Partial -->
+  <%- include('partials/footer') %>
+
+  <script>
+    // Theme Management
+    let currentThemeMode = localStorage.getItem('portalix_theme_mode') || 'auto';
+
+    function applyTheme(mode) {
+      currentThemeMode = mode;
+      localStorage.setItem('portalix_theme_mode', mode);
+
+      const iconLight = document.getElementById('theme-icon-light');
+      const iconDark = document.getElementById('theme-icon-dark');
+      const iconAuto = document.getElementById('theme-icon-auto');
+      const label = document.getElementById('theme-label-text');
+      const metaThemeColor = document.getElementById('meta-theme-color');
+
+      if (mode === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        if (metaThemeColor) metaThemeColor.setAttribute('content', '#f8f9fa');
+        if (label) label.textContent = 'Light';
+        if (iconLight) iconLight.style.display = 'inline-block';
+        if (iconDark) iconDark.style.display = 'none';
+        if (iconAuto) iconAuto.style.display = 'none';
+      } else if (mode === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        if (metaThemeColor) metaThemeColor.setAttribute('content', '#090a0c');
+        if (label) label.textContent = 'Dark';
+        if (iconLight) iconLight.style.display = 'none';
+        if (iconDark) iconDark.style.display = 'inline-block';
+        if (iconAuto) iconAuto.style.display = 'none';
+      } else {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+        if (metaThemeColor) metaThemeColor.setAttribute('content', prefersDark ? '#090a0c' : '#f8f9fa');
+        if (label) label.textContent = 'Auto';
+        if (iconLight) iconLight.style.display = 'none';
+        if (iconDark) iconDark.style.display = 'none';
+        if (iconAuto) iconAuto.style.display = 'inline-block';
+      }
+
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', () => {
+        if (currentThemeMode === 'auto') applyTheme('dark');
+        else if (currentThemeMode === 'dark') applyTheme('light');
+        else applyTheme('auto');
+      });
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (currentThemeMode === 'auto') {
+        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        const metaThemeColor = document.getElementById('meta-theme-color');
+        if (metaThemeColor) metaThemeColor.setAttribute('content', e.matches ? '#090a0c' : '#f8f9fa');
+      }
+    });
+
+    applyTheme(currentThemeMode);
+
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+  <!-- Header -->
+  <header class="main-header">
+    <div class="header-inner">
+      <div class="logo-container">
+        <a href="/" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
+          <img src="/logo.svg" alt="Portalix" width="32" height="32" style="border-radius: 8px; display: block; flex-shrink: 0;" />
+          <span class="brand-title">Portalix</span>
+        </a>
+        <span class="brand-tagline">Directory</span>
+      </div>
+
+      <% if (typeof showSearch !== 'undefined' && showSearch) { %>
+      <div class="search-wrapper">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input 
+          type="text" 
+          id="search-input" 
+          class="search-input" 
+          placeholder="Search <%= typeof totalCount !== 'undefined' ? totalCount : 76 %> sites..." 
+          autocomplete="off"
+          aria-label="Search directory"
+        />
+        <span class="search-shortcut">/</span>
+      </div>
+      <% } %>
+
+      <nav class="header-nav">
+        <a href="/" class="nav-link <%= typeof activePage !== 'undefined' && activePage === 'home' ? 'active' : '' %>">
+          <i data-lucide="compass" class="lucide-icon-xs"></i>
+          <span class="nav-label">Directory</span>
+        </a>
+        <a href="/about" class="nav-link <%= typeof activePage !== 'undefined' && activePage === 'about' ? 'active' : '' %>">
+          <i data-lucide="info" class="lucide-icon-xs"></i>
+          <span class="nav-label">About</span>
+        </a>
+        <a href="/submit" class="nav-link <%= typeof activePage !== 'undefined' && activePage === 'submit' ? 'active' : '' %>">
+          <i data-lucide="plus-circle" class="lucide-icon-xs"></i>
+          <span class="nav-label">Submit</span>
+        </a>
+
+        <!-- Theme Switcher Button -->
+        <button id="theme-toggle-btn" class="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle theme mode">
+          <i data-lucide="sun" id="theme-icon-light" class="lucide-icon-xs"></i>
+          <i data-lucide="moon" id="theme-icon-dark" class="lucide-icon-xs"></i>
+          <i data-lucide="monitor" id="theme-icon-auto" class="lucide-icon-xs"></i>
+          <span class="theme-label" id="theme-label-text">Auto</span>
+        </button>
+
+        <a href="https://github.com/ichshakib/portalix" target="_blank" rel="noopener noreferrer" class="github-btn" title="View Source on GitHub" aria-label="GitHub Repository">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+            <path d="M9 18c-4.51 2-5-2-7-2"></path>
+          </svg>
+          <span class="github-label">GitHub</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <style>
+    /* ── Responsive Header ── */
+    @media (max-width: 768px) {
+      header.main-header {
+        padding: 12px 16px;
+      }
+      .header-inner {
+        gap: 10px;
+      }
+      .search-wrapper {
+        order: 3;
+        flex-basis: 100%;
+        max-width: 100%;
+      }
+      .header-nav {
+        gap: 6px;
+      }
+      .nav-link {
+        padding: 6px 8px;
+      }
+      .theme-toggle-btn {
+        padding: 6px 8px;
+      }
+      .github-btn {
+        padding: 6px 8px;
+      }
+    }
+    @media (max-width: 540px) {
+      .nav-label {
+        display: none;
+      }
+      .theme-label {
+        display: none;
+      }
+      .github-label {
+        display: none;
+      }
+      .header-nav {
+        gap: 4px;
+      }
+      .brand-tagline {
+        display: none;
+      }
+    }
+    @media (max-width: 380px) {
+      .brand-title {
+        font-size: 1rem;
+      }
+    }
+  </style>

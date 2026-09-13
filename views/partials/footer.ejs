@@ -1,0 +1,136 @@
+  <!-- Detailed Footer -->
+  <footer class="detailed-footer">
+    <div class="footer-grid">
+      <!-- Brand & Mission -->
+      <div class="footer-brand">
+        <div class="footer-brand-title">
+          <img src="/logo.svg" alt="Portalix" width="24" height="24" style="border-radius: 6px; display: block; flex-shrink: 0;" />
+          <span>Portalix Directory</span>
+        </div>
+        <p class="footer-brand-desc">
+          Portalix is an open-source, high-efficiency directory designed for swift navigation across the web's best streaming hubs, anime indexes, manga readers, and sports streams.
+        </p>
+        <div style="display: flex; gap: 12px; margin-top: 4px;">
+          <a href="/about" style="font-size: 0.8rem; color: var(--text-muted); text-decoration: underline;">About Project</a>
+          <span style="color: var(--border-light);">•</span>
+          <a href="/submit" style="font-size: 0.8rem; color: var(--text-muted); text-decoration: underline;">Submit a Site</a>
+          <span style="color: var(--border-light);">•</span>
+          <a href="mailto:ichshakib@gmail.com" style="font-size: 0.8rem; color: var(--text-muted); text-decoration: underline;">Contact</a>
+        </div>
+      </div>
+
+      <!-- Categories Links -->
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <% categories.forEach(function(cat) { %>
+            <li>
+              <a href="/#section-<%= cat.id %>" onclick="if (typeof filterByCategory === 'function') { filterByCategory('<%= cat.name %>'); return false; }">
+                <i data-lucide="<%= cat.icon %>" class="lucide-icon-xs"></i>
+                <span><%= cat.name %></span>
+                <span class="footer-badge-count"><%= cat.count %></span>
+              </a>
+            </li>
+          <% }); %>
+        </ul>
+      </div>
+
+      <!-- API & Navigation Links -->
+      <div class="footer-col">
+        <h4>Navigation &amp; API</h4>
+        <ul>
+          <li>
+            <a href="/">
+              <i data-lucide="compass" class="lucide-icon-xs"></i>
+              <span>Directory Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="/about">
+              <i data-lucide="info" class="lucide-icon-xs"></i>
+              <span>About Portalix</span>
+            </a>
+          </li>
+          <li>
+            <a href="/submit">
+              <i data-lucide="plus-circle" class="lucide-icon-xs"></i>
+              <span>Submit Resource</span>
+            </a>
+          </li>
+          <li>
+            <a href="/api/sites" target="_blank">
+              <i data-lucide="code-2" class="lucide-icon-xs"></i>
+              <span>GET /api/sites</span>
+            </a>
+          </li>
+          <li>
+            <a href="/health" target="_blank">
+              <i data-lucide="activity" class="lucide-icon-xs"></i>
+              <span>GET /health</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/ichshakib/portalix" target="_blank" rel="noopener noreferrer">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-icon-xs">
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                <path d="M9 18c-4.51 2-5-2-7-2"></path>
+              </svg>
+              <span>GitHub Repository</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Disclaimer & Contact -->
+      <div class="footer-col">
+        <h4>Disclaimer &amp; Contact</h4>
+        <p class="legal-notice">
+          Portalix operates strictly as an indexing directory. We do not host, store, stream, or broadcast any media or copyrighted content.
+        </p>
+        <div class="footer-contact-box">
+          <div class="footer-contact-label">Direct Inquiries &amp; Submissions:</div>
+          <a href="mailto:ichshakib@gmail.com" class="footer-contact-email">
+            <i data-lucide="mail" class="lucide-icon-xs"></i>
+            <span>ichshakib@gmail.com</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom copyright row -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <span>© 2026 <strong>Portalix</strong>. All rights reserved.</span>
+      </div>
+      <div>
+        <button class="back-to-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+          <i data-lucide="arrow-up" class="lucide-icon-xs"></i>
+          <span>Back to Top</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Zoom Prevention: CSS & Touch Gestures -->
+  <style>
+    html, body {
+      touch-action: pan-x pan-y;
+    }
+  </style>
+  <script>
+    // Prevent iOS Safari and mobile gesture/pinch zooming
+    document.addEventListener('gesturestart', function (e) {
+      e.preventDefault();
+    });
+    document.addEventListener('gesturechange', function (e) {
+      e.preventDefault();
+    });
+    document.addEventListener('gestureend', function (e) {
+      e.preventDefault();
+    });
+    document.addEventListener('touchmove', function (e) {
+      if (e.touches.length > 1) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+  </script>

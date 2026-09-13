@@ -1,0 +1,50 @@
+<% 
+  const faviconSrc = `https://www.google.com/s2/favicons?domain=${site.domain}&sz=64`;
+  const initials = site.name.slice(0, 2).toUpperCase();
+%>
+<div class="site-card" data-id="<%= site.id %>" data-name="<%= site.name.toLowerCase() %>" data-domain="<%= site.domain.toLowerCase() %>" data-category="<%= site.category.toLowerCase() %>" data-tags="<%= (site.tags || []).join(' ').toLowerCase() %>" onclick="window.open('<%= site.url %>', '_blank', 'noopener,noreferrer')" title="Open <%= site.name %> (<%= site.domain %>)">
+  <div class="card-top">
+    <div class="card-brand">
+      <div class="favicon-box">
+        <img src="<%= faviconSrc %>" alt="<%= site.name %>" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <span class="favicon-fallback" style="display:none;"><%= initials %></span>
+      </div>
+      <div class="card-title-group">
+        <div class="card-title"><%= site.name %></div>
+        <div class="card-domain">
+          <span><%= site.domain %></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-actions">
+      <button class="copy-link-btn" onclick="copyLink('<%= site.url %>', event)" title="Copy link" aria-label="Copy link for <%= site.name %>">
+        <i data-lucide="copy" class="lucide-icon-sm"></i>
+      </button>
+      <button class="star-btn" data-star-id="<%= site.id %>" onclick="toggleStar('<%= site.id %>', event)" title="Bookmark" aria-label="Bookmark <%= site.name %>">
+        <i data-lucide="star" class="lucide-icon-sm"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="card-bottom">
+    <div class="tags-group">
+      <% if (site.isTrusted) { %>
+        <span class="tag-chip tag-trusted">
+          <i data-lucide="shield-check" class="lucide-icon-xs"></i>
+          <span>Trusted</span>
+        </span>
+      <% } %>
+      <% if (site.isFeatured) { %>
+        <span class="tag-chip tag-featured">
+          <i data-lucide="sparkles" class="lucide-icon-xs"></i>
+          <span>Featured</span>
+        </span>
+      <% } %>
+      <span class="tag-chip tag-default"><%= site.category %></span>
+    </div>
+    <div class="card-ext-link">
+      <span>Open</span>
+      <i data-lucide="arrow-up-right" class="lucide-icon-xs"></i>
+    </div>
+  </div>
+</div>
