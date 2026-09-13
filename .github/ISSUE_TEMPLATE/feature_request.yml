@@ -1,0 +1,70 @@
+name: "💡 Feature Request"
+description: "Propose an idea, UI enhancement, or improvement to Portalix"
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting an enhancement for Portalix!
+        We value ideas that maintain our core principles: **minimalism, speed, zero-bloat, and privacy**.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: "Problem or Need"
+      description: "Is your feature request related to a problem or missing capability? Please describe."
+      placeholder: "I'm always frustrated when..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: "Proposed Solution"
+      description: "Describe the solution or enhancement you'd like to see implemented."
+      placeholder: "Add an export bookmarks button so users can back up their saved sites to JSON..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "Alternatives Considered"
+      description: "Describe any alternative solutions or features you've considered."
+      placeholder: "A clear description of any alternative solutions or workarounds..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: "Feature Category"
+      description: "Which aspect of the project would this feature touch?"
+      options:
+        - "Frontend UI / UX & Design"
+        - "Search & Filtering"
+        - "Bookmarking & Client Storage"
+        - "REST API & Endpoints"
+        - "Performance & Optimization"
+        - "Documentation / Developer Experience"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: "Additional Context / Mockups"
+      description: "Add any other context, screenshots, or design mockups about the feature request here."
+      placeholder: "Drop any screenshots, diagrams, or links here..."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: "Checklist"
+      options:
+        - label: "I have searched the [existing issues](https://github.com/ichshakib/portalix/issues) and feature requests to ensure this is not a duplicate."
+          required: true

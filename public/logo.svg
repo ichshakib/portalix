@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="p-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e222b" />
+      <stop offset="100%" stop-color="#111318" />
+    </linearGradient>
+    <linearGradient id="p-text-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#e2e8f0" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Outer Rounded Tile -->
+  <rect x="2" y="2" width="44" height="44" rx="11" fill="url(#p-bg)" stroke="#2c313c" stroke-width="2" />
+  
+  <!-- Clean, Bold, Modern P Glyph -->
+  <path d="M16 35V13h8.5a7.5 7.5 0 0 1 7.5 7.5v0a7.5 7.5 0 0 1-7.5 7.5H21" stroke="url(#p-text-grad)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

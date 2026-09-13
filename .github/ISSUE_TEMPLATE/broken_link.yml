@@ -1,0 +1,60 @@
+name: "🔗 Broken Link / Offline Site Report"
+description: "Report a site or resource currently listed in Portalix that is offline, blocked, or compromised"
+title: "[Broken Link]: "
+labels: ["broken-link", "needs-verification"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping keep the Portalix directory clean and up-to-date!
+        Please provide information about the dead or compromised link below.
+
+  - type: input
+    id: site_name
+    attributes:
+      label: "Site Name & Domain"
+      description: "Which site listed in Portalix is broken or dead?"
+      placeholder: "e.g., ExampleSite (examplesite.com)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue_type
+    attributes:
+      label: "Issue Type"
+      description: "What is wrong with the resource?"
+      options:
+        - "Domain is dead / DNS not resolving / 404 / 5xx error"
+        - "Site has permanently shut down"
+        - "Domain has expired or was seized / taken over by squatter"
+        - "Site now redirects to malware, scam, or deceptive ad network"
+        - "Site has changed its official domain / URL"
+        - "Service has become paid or geo-restricted"
+    validations:
+      required: true
+
+  - type: input
+    id: new_url
+    attributes:
+      label: "New Domain / Mirror URL (if known)"
+      description: "If the site simply moved to a new official domain, please provide the new URL."
+      placeholder: "https://new-mirror.example.com/"
+    validations:
+      required: false
+
+  - type: textarea
+    id: details
+    attributes:
+      label: "Additional Information"
+      description: "Any extra context or evidence regarding the downtime or status change."
+      placeholder: "Site displays Cloudflare Error 522 or official announcement on their Discord/Twitter..."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: "Verification"
+      options:
+        - label: "I tested this link on multiple networks or checked with a site status checker (e.g. downforeveryoneorjustme.com)."
+          required: true

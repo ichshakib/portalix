@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Contributing Guidelines
+    url: https://github.com/ichshakib/portalix/blob/main/CONTRIBUTING.md
+    about: Read our contributing guide for development setup, code standards, and PR workflows.
+  - name: 📜 Code of Conduct
+    url: https://github.com/ichshakib/portalix/blob/main/CODE_OF_CONDUCT.md
+    about: Review our community code of conduct and reporting guidelines.
+  - name: 💬 Questions & Discussions
+    url: https://github.com/ichshakib/portalix/discussions
+    about: Ask questions, share feedback, or discuss general ideas with the community.

@@ -1,0 +1,86 @@
+name: "🌐 New Site / Resource Suggestion"
+description: "Suggest a new streaming service, anime, manga, sports platform, or media tool to index on Portalix"
+title: "[Site]: "
+labels: ["site-submission", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a new site to be indexed on **Portalix**!
+        Please ensure the site complies with our [Inclusion Criteria](https://github.com/ichshakib/portalix/blob/main/CONTRIBUTING.md#-criteria-for-inclusion) before submitting.
+
+  - type: input
+    id: site_name
+    attributes:
+      label: "Site Name"
+      description: "The official public name of the website or platform."
+      placeholder: "e.g., AnimeDex"
+    validations:
+      required: true
+
+  - type: input
+    id: site_url
+    attributes:
+      label: "Website URL"
+      description: "The primary URL/domain of the site (include https://)."
+      placeholder: "https://example.com/"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: "Category"
+      description: "Select the primary category that best fits this resource."
+      options:
+        - "Movies & Shows"
+        - "Anime"
+        - "Manga"
+        - "Live TV & Sports"
+        - "Paid"
+        - "Apps"
+    validations:
+      required: true
+
+  - type: input
+    id: regions
+    attributes:
+      label: "Regions / Availability"
+      description: "Where is this service available?"
+      placeholder: "e.g., Global, US, UK, etc."
+      value: "Global"
+    validations:
+      required: true
+
+  - type: input
+    id: tags
+    attributes:
+      label: "Tags"
+      description: "Comma-separated keywords describing features (e.g., ad-free, 1080p, sub/dub, download, discord, open-source)."
+      placeholder: "e.g., trusted, ad-free, fast, 1080p"
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Short Description"
+      description: "A 1-2 sentence description of standout features, media catalog, or user experience."
+      placeholder: "Fast anime streaming site with zero popups, multi-audio support, and clean UI."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: quality_checklist
+    attributes:
+      label: "Quality & Safety Verification"
+      description: "Please confirm that the site meets Portalix standards:"
+      options:
+        - label: "The site is currently online, operational, and accessible without critical errors."
+          required: true
+        - label: "The site contains NO malware, phishing, deceptive download lockers, or crypto-miners."
+          required: true
+        - label: "The site provides a functional media player, clean reader, or high-utility service."
+          required: true
+        - label: "I have verified that this site is not already listed in Portalix."
+          required: true
