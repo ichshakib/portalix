@@ -33,7 +33,7 @@
 
 ### 🌟 Key Features
 
-- **79+ Verified Resources**: Hand-curated across 6 primary entertainment and utility categories.
+- **94+ Verified Resources**: Hand-curated across 9 primary entertainment and utility categories.
 - **⚡ Ultra-Fast Search**: Real-time fuzzy filtering by site name, domain, category, and tags (`/` shortcut).
 - **🔒 Privacy-First & Lightweight**: Zero invasive tracking scripts, zero bloat, and offline-safe local storage for bookmarks.
 - **🎨 Minimalist Dark & Light Modes**: Clean monochrome aesthetic using Lucide vector icons and custom slim scrollbars.
@@ -58,12 +58,15 @@ Portalix features a clean, distraction-free interface with full dark and light m
 
 | Category | Icon | Count | Description |
 | :--- | :---: | :---: | :--- |
-| **Movies & Shows** | `film` | 30 | Free movie streaming hubs, web series, and HD cinema portals |
-| **Anime** | `tv` | 16 | Subbed & dubbed anime streaming platforms and aggregators |
+| **Movies & Shows** | `film` | 33 | Free movie streaming hubs, web series, and HD cinema portals |
+| **Anime** | `tv` | 18 | Subbed & dubbed anime streaming platforms and aggregators |
 | **Manga** | `book-open` | 7 | Online manga readers, scanlations, manhwa, and webtoons |
-| **Live TV & Sports** | `trophy` | 7 | Live sports streams, football, cricket, PPV events, and IPTV |
+| **Live TV & Sports** | `trophy` | 8 | Live sports streams, football, cricket, PPV events, and IPTV |
 | **Paid Platforms** | `credit-card` | 13 | Official subscription services and OTT platforms (Netflix, HBO Max, etc.) |
 | **Apps & Tools** | `layout-grid` | 6 | Mobile streaming APKs, media managers, and client tools |
+| **K Drama** | `clapperboard` | 3 | Korean, Chinese, and Asian drama streaming hubs with multi-subtitles |
+| **Download** | `download` | 4 | Direct movie download hubs, repack sources, and software archives |
+| **Games** | `gamepad-2` | 2 | Free PC games, ultra-compressed repacks, and instant browser games |
 
 ---
 
