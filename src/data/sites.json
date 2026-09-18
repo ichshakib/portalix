@@ -137,22 +137,24 @@
     "faviconUrl": "/logos/1flex_org.png"
   },
   {
-    "id": "ms2tvigbxglzl",
-    "name": "REDFLIX",
+    "id": "mu5n6mxigco0x",
+    "name": "RED FLIX",
     "url": "https://redflix.club/",
     "domain": "redflix.club",
     "category": "Movies & Shows",
     "regions": [
       "Global"
     ],
-    "tags": [],
-    "isTrusted": false,
+    "tags": [
+      "trusted"
+    ],
+    "isTrusted": true,
     "isNew": false,
     "isFeatured": false,
     "description": "",
-    "addedAt": 1785132626987,
-    "order": 8,
-    "faviconUrl": "/logos/redflix_club.png"
+    "faviconUrl": "/logos/redflix_club.png",
+    "addedAt": 1789656351895,
+    "order": 5
   },
   {
     "id": "ms2twlltw6obx",
@@ -1477,5 +1479,289 @@
     "addedAt": 1785162063640,
     "order": 1,
     "faviconUrl": "https://www.google.com/s2/favicons?domain=netmirror.center&sz=64"
+  },
+  {
+    "id": "dl-fitgirl",
+    "name": "FITGIRL REPACKS",
+    "url": "https://fitgirl-repacks.site/",
+    "domain": "fitgirl-repacks.site",
+    "category": "Download",
+    "regions": [
+      "Global"
+    ],
+    "tags": [
+      "trusted"
+    ],
+    "isTrusted": true,
+    "isNew": false,
+    "isFeatured": false,
+    "description": "The official, highly trusted source for ultra-compressed PC repack downloads and software.",
+    "addedAt": 1789446376408,
+    "order": 2,
+    "faviconUrl": "https://www.google.com/s2/favicons?domain=fitgirl-repacks.site&sz=128"
+  },
+  {
+    "id": "game-crazygames",
+    "name": "CRAZYGAMES",
+    "url": "https://www.crazygames.com/",
+    "domain": "crazygames.com",
+    "category": "Games",
+    "regions": [
+      "Global"
+    ],
+    "tags": [
+      "trusted"
+    ],
+    "isTrusted": true,
+    "isNew": true,
+    "isFeatured": false,
+    "description": "Instant-play browser games with thousands of free online single and multiplayer games.",
+    "addedAt": 1789446376408,
+    "order": 2,
+    "faviconUrl": "https://www.google.com/s2/favicons?domain=crazygames.com&sz=128"
+  },
+  {
+    "id": "mu27eluoage5p",
+    "name": "HDHub4U",
+    "url": "https://hdhub4u.bi/",
+    "domain": "hdhub4u.bi",
+    "category": "Download",
+    "regions": [
+      "Global"
+    ],
+    "tags": [],
+    "isTrusted": false,
+    "isNew": false,
+    "isFeatured": false,
+    "description": "HDHub4U streaming platform.",
+    "addedAt": 1789448451360,
+    "order": 3
+  },
+  {
+    "id": "mu27fotacuvhq",
+    "name": "DRAMA PLANETS",
+    "url": "https://www.dramaplanets.online/",
+    "domain": "dramaplanets.online",
+    "category": "K Drama",
+    "regions": [
+      "Global"
+    ],
+    "tags": [
+      "new"
+    ],
+    "isTrusted": false,
+    "isNew": true,
+    "isFeatured": false,
+    "description": "you should add this websites because they will attract more audience like k drama c drama fans cz they r having problems to find websites so if u will add websites for dramas this will be a huge profit for you. thank you",
+    "addedAt": 1789448501854,
+    "order": 3
+  },
+  {
+    "id": "mu27sdpt6xev3",
+    "name": "ANKER GAMES",
+    "url": "https://ankergames.net/",
+    "domain": "ankergames.net",
+    "category": "Games",
+    "regions": [
+      "Global"
+    ],
+    "tags": [
+      "trusted"
+    ],
+    "isTrusted": true,
+    "isNew": false,
+    "isFeatured": false,
+    "description": "FREE PC GAMES",
+    "addedAt": 1789449094001,
+    "order": 3
+  },
+  {
+    "id": "mu5damms1vagj",
+    "name": "THUGTV",
+    "url": "https://thugtv.online/",
+    "domain": "thugtv.online",
+    "category": "Movies & Shows",
+    "regions": [
+      "Global"
+    ],
+    "tags": [],
+    "isTrusted": false,
+    "isNew": false,
+    "isFeatured": false,
+    "description": "",
+    "addedAt": 1789639741972,
+    "order": 3
+  },
+  {
+    "id": "mu27tdq0zmrln",
+    "name": "FILE CR",
+    "url": "https://filecr.com/home/",
+    "domain": "filecr.com",
+    "category": "Download",
+    "regions": [
+      "Global"
+    ],
+    "tags": [
+      "trusted"
+    ],
+    "isTrusted": true,
+    "isNew": false,
+    "isFeatured": false,
+    "description": "download anything",
+    "addedAt": 1789449140664,
+    "order": 4
+  },
+  {
+    "id": "mu27wjd635elu",
+    "name": "VIKI",
+    "url": "https://www.viki.com/",
+    "domain": "viki.com",
+    "category": "K Drama",
+    "regions": [
+      "Global"
+    ],
+    "tags": [
+      "new"
+    ],
+    "isTrusted": false,
+    "isNew": true,
+    "isFeatured": false,
+    "description": "",
+    "faviconUrl": "/logos/viki_com.png",
+    "addedAt": 1789449287946,
+    "order": 4
+  },
+  {
+    "id": "mu27u3ffmd0yz",
+    "name": "FILMYFLY",
+    "url": "https://filmyfly.bingo/",
+    "domain": "filmyfly.bingo",
+    "category": "Download",
+    "regions": [
+      "Global"
+    ],
+    "tags": [
+      "trusted"
+    ],
+    "isTrusted": true,
+    "isNew": false,
+    "isFeatured": false,
+    "description": "",
+    "addedAt": 1789449173979,
+    "order": 5
+  },
+  {
+    "id": "mu27y42ir5x0a",
+    "name": "K SHOW",
+    "url": "https://kshow123.tv/",
+    "domain": "kshow123.tv",
+    "category": "K Drama",
+    "regions": [
+      "Global"
+    ],
+    "tags": [
+      "new"
+    ],
+    "isTrusted": false,
+    "isNew": true,
+    "isFeatured": false,
+    "description": "",
+    "addedAt": 1789449361434,
+    "order": 5
+  },
+  {
+    "id": "mu241sbzauh9x",
+    "name": "fancode",
+    "url": "https://www.fancode.com/",
+    "domain": "fancode.com",
+    "category": "Live TV & Sports",
+    "regions": [
+      "Global"
+    ],
+    "tags": [
+      "new"
+    ],
+    "isTrusted": false,
+    "isNew": true,
+    "isFeatured": false,
+    "description": "Watch on fancode.",
+    "addedAt": 1789442814383,
+    "order": 7
+  },
+  {
+    "id": "mu25o20qf2l9d",
+    "name": "OTANOX",
+    "url": "https://otanox.online/",
+    "domain": "otanox.online",
+    "category": "Anime",
+    "regions": [
+      "Global"
+    ],
+    "tags": [
+      "new"
+    ],
+    "isTrusted": false,
+    "isNew": true,
+    "isFeatured": false,
+    "description": "Watch on OTANOX.",
+    "addedAt": 1789445532986,
+    "order": 17
+  },
+  {
+    "id": "mu25rlfec9p45",
+    "name": "HiAnime",
+    "url": "https://hianime.at/home",
+    "domain": "hianime.at",
+    "category": "Anime",
+    "regions": [
+      "Global"
+    ],
+    "tags": [
+      "new"
+    ],
+    "isTrusted": false,
+    "isNew": true,
+    "isFeatured": false,
+    "description": "Watch on HiAnime.",
+    "addedAt": 1789445698106,
+    "order": 18
+  },
+  {
+    "id": "mu25bubupd8h6",
+    "name": "Netshows",
+    "url": "https://netshows.xyz/",
+    "domain": "netshows.xyz",
+    "category": "Movies & Shows",
+    "regions": [
+      "Global"
+    ],
+    "tags": [
+      "new"
+    ],
+    "isTrusted": false,
+    "isNew": true,
+    "isFeatured": false,
+    "description": "Watch on Netshows.",
+    "addedAt": 1789444963146,
+    "order": 29
+  },
+  {
+    "id": "mu27gwx210awk",
+    "name": "bingr one",
+    "url": "https://bingr.one/",
+    "domain": "bingr.one",
+    "category": "Movies & Shows",
+    "regions": [
+      "Global"
+    ],
+    "tags": [
+      "new"
+    ],
+    "isTrusted": false,
+    "isNew": true,
+    "isFeatured": false,
+    "description": "Bingr is an all-in-one streaming platform for movies, TV shows, anime, and live sports with multi-language audio & subtitles, multi-profile sync, cross-device watch progress, and a clean, fast UI.",
+    "addedAt": 1789448559014,
+    "order": 30
   }
 ]
