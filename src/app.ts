@@ -89,6 +89,9 @@ const getCategoryList = (sites: SiteItem[]): CategoryInfo[] => {
     { id: 'live-tv-sports', name: 'Live TV & Sports', icon: 'trophy', desc: 'Live sports streams, PPV events, soccer, basketball & IPTV' },
     { id: 'paid', name: 'Paid', icon: 'credit-card', desc: 'Official premium OTT platforms, subscription streaming & video on demand' },
     { id: 'apps', name: 'Apps', icon: 'layout-grid', desc: 'Mobile streaming APKs, media managers & streaming client applications' },
+    { id: 'k-drama', name: 'K Drama', icon: 'clapperboard', desc: 'Korean, Chinese & Asian drama streaming portals, series & subtitles' },
+    { id: 'download', name: 'Download', icon: 'download', desc: 'Direct movie downloads, software portals, repack hubs & media archives' },
+    { id: 'games', name: 'Games', icon: 'gamepad-2', desc: 'Free PC game repacks, instant browser games & gaming portals' },
   ];
 
   return baseCategories.map((cat) => ({
